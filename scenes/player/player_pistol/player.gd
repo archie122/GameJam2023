@@ -4,6 +4,7 @@ var health: int = 200
 
 var speed: int = 400
 var can_shoot: bool = true
+var took_damage: bool = false
 
 signal shot(pos, direction)
 
@@ -34,12 +35,13 @@ func _on_shot_cooldown_timeout():
 	can_shoot = true
 
 func hit(damage):
-	health -= damage
-	$Iframe.start()
-	set_collision_layer_value(1,false)
 	
+	if(!took_damage):
+		$Iframe.start()
+		took_damage = true
+		health -= 50
 
 
 
 func _on_iframe_timeout():
-	pass
+	took_damage = false
