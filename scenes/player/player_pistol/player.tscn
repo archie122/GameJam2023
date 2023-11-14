@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6y4o8jqhp03g"]
+
+[ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_673r1"]
+[ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ygw"]
+size = Vector2(126, 126)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_q186s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_40ygw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_673r1")
