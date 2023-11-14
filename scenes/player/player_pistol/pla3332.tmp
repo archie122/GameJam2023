@@ -18,7 +18,7 @@ texture = ExtResource("1_673r1")
 
 [node name="shot cooldown" type="Timer" parent="."]
 
-[node name="shot spawns" type="Node2D" parent="."]
+[node name="shot spawns" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="shot spawns"]
 position = Vector2(65, 17)

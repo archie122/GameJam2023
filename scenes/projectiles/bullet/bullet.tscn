@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsawgbdmybps1"]
+
+[ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_owu47"]
+[ext_resource type="Script" path="res://scenes/projectiles/bullet/bullet.gd" id="1_pv31y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52qx0"]
+size = Vector2(32, 32)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_pv31y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00746, 1)
+shape = SubResource("RectangleShape2D_52qx0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_owu47")
+
+[node name="despawn" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="despawn" to="." method="_on_despawn_timeout"]
