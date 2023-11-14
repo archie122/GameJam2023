@@ -15,3 +15,10 @@ func _process(delta):
 
 func _on_despawn_timeout():
 	queue_free()
+
+
+#when hitting a obj will remove bullet and if body that it hit needs change calls func
+func _on_body_entered(body):
+	queue_free()
+	if("hit" in body):
+		body.hit()

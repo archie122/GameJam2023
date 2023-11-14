@@ -9,6 +9,9 @@ script = ExtResource("1_q7se2")
 
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+
 [node name="projectiles" type="Node2D" parent="."]
 
 [node name="enemie" parent="." instance=ExtResource("3_0foou")]

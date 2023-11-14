@@ -7,6 +7,7 @@
 size = Vector2(126, 126)
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 30
 script = ExtResource("1_q186s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,4 +33,8 @@ scale = Vector2(1.61995, 1)
 position = Vector2(65, 0)
 scale = Vector2(1.61995, 1)
 
+[node name="Iframe" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="shot cooldown" to="." method="_on_shot_cooldown_timeout"]
+[connection signal="timeout" from="Iframe" to="." method="_on_iframe_timeout"]
