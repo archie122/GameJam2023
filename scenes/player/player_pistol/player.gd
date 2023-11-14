@@ -6,7 +6,7 @@ var can_shoot: bool = true
 signal shot(pos, direction)
 
 func _process(_delta):
-	
+	Globals.player_position = position
 	#moves player
 	var direction: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = speed * direction 
