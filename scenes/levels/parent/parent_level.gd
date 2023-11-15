@@ -4,6 +4,11 @@ var bullet_scene: PackedScene = preload("res://scenes/projectiles/bullet/bullet.
 var spawn_zombie: PackedScene = preload("res://scenes/enemies/zombie/enemie.tscn")
 var spawn_bug: PackedScene = preload("res://scenes/enemies/bug/bug.tscn")
 
+var spawn_wood: PackedScene = preload("res://scenes/items/wood/wood.tscn")
+var spawn_stone: PackedScene = preload("res://scenes/items/stone/stone.tscn")
+var spawn_steel: PackedScene = preload("res://scenes/items/steel/steel.tscn")
+var spawn_leather: PackedScene = preload("res://scenes/items/wood/wood.tscn")
+var spawn_raw_meat: PackedScene = preload("res://scenes/items/food/raw_meat/raw_meat.tscn")
 
 func _on_player_shot(pos, direction):
 	var bullet = bullet_scene.instantiate() as Area2D
@@ -29,7 +34,9 @@ func _on_player_bug(pos, _direction):
 	var bug = spawn_bug.instantiate() as CharacterBody2D
 	bug.position = pos
 	
-	print("start bug")
+	
 	await get_tree().create_timer(2).timeout
-	print("spawn bug")
+	
 	$enemies.add_child(bug)
+
+

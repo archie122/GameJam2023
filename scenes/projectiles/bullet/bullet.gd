@@ -1,5 +1,6 @@
 extends Area2D
-var speed: int = 500
+var speed: int = 600
+var damage: int = 50
 var direction:Vector2 = Vector2.UP
 
 func _ready():
@@ -21,4 +22,4 @@ func _on_despawn_timeout():
 func _on_body_entered(body):
 	queue_free()
 	if("hit" in body):
-		body.hit()
+		body.hit(damage)

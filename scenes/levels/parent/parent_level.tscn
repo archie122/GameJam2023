@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bokrdte2bswx3"]
+[gd_scene load_steps=8 format=3 uid="uid://bokrdte2bswx3"]
 
 [ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="1_bhedc"]
 [ext_resource type="Script" path="res://scenes/levels/parent/parent_level.gd" id="1_q7se2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1kbly42xcy6" path="res://scenes/enemies/zombie/enemie.tscn" id="3_0foou"]
 [ext_resource type="PackedScene" uid="uid://dancix0bt6gna" path="res://scenes/items/wood/wood.tscn" id="5_n38ey"]
 [ext_resource type="PackedScene" uid="uid://bs7kqdjoxpxm" path="res://scenes/items/stone/stone.tscn" id="6_t2ll7"]
+[ext_resource type="PackedScene" uid="uid://x2ls441w0ahd" path="res://scenes/enemies/cow/cow.tscn" id="7_brf8m"]
 
 [node name="parent_level" type="Node2D"]
 script = ExtResource("1_q7se2")
@@ -20,10 +21,19 @@ region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 
 [node name="enemies" type="Node2D" parent="."]
 
+[node name="items" type="Node2D" parent="."]
+
+[node name="wood" parent="items" instance=ExtResource("5_n38ey")]
+position = Vector2(414, -205)
+
+[node name="stone" parent="items" instance=ExtResource("6_t2ll7")]
+position = Vector2(128, -145)
+
 [node name="enemie" parent="." instance=ExtResource("3_0foou")]
 position = Vector2(978, 190)
 
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
+can_spawn = false
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position_smoothing_enabled = true
@@ -43,11 +53,8 @@ scale_amount_min = 3.5
 scale_amount_max = 5.5
 color = Color(0.737255, 0.372549, 0, 1)
 
-[node name="wood" parent="." instance=ExtResource("5_n38ey")]
-position = Vector2(414, -205)
-
-[node name="stone" parent="." instance=ExtResource("6_t2ll7")]
-position = Vector2(128, -145)
+[node name="Cow" parent="." instance=ExtResource("7_brf8m")]
+position = Vector2(187, -374)
 
 [connection signal="bug" from="player" to="." method="_on_player_bug"]
 [connection signal="shot" from="player" to="." method="_on_player_shot"]

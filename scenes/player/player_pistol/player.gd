@@ -78,3 +78,6 @@ func _on_enemy_timeout():
 
 func add_item(item,amount):
 	print("add item ", item, " ", amount)
+	Globals.item_in[item] += amount
+	Globals.display_item_in()
+	

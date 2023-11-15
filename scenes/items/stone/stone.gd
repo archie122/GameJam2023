@@ -3,10 +3,7 @@ extends "res://scenes/items/Parent/parent_item.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	item_id = 2
+	item_id = 1
 	item_amount = 10
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
