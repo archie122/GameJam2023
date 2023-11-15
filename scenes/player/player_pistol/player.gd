@@ -72,9 +72,9 @@ func _on_enemy_timeout():
 		
 		var bug_spawn =  $"bug spawns".get_children()
 		var selected_bug_spawn = bug_spawn[randi() % bug_spawn.size()]
-		$CPUParticles2D.position = selected_bug_spawn.global_position
-		$CPUParticles2D.emitting = true
-		print("start bug")
-		await get_tree().create_timer(2).timeout
-		print("spawn bug")
+		
 		bug.emit(selected_bug_spawn.global_position,playerDirection)
+
+
+func add_item(item,amount):
+	print("add item ", item, " ", amount)

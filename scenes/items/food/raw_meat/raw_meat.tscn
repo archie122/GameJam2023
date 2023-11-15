@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://2m7irv4gb5gs"]
+
+[ext_resource type="PackedScene" uid="uid://bqluw5l1vcwtl" path="res://scenes/items/Parent/parent_item.tscn" id="1_fe7iw"]
+[ext_resource type="Script" path="res://scenes/items/food/raw_meat/raw_meat.gd" id="2_c8om3"]
+
+[node name="raw_meat" instance=ExtResource("1_fe7iw")]
+script = ExtResource("2_c8om3")

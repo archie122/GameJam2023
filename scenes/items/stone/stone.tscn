@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs7kqdjoxpxm"]
+
+[ext_resource type="PackedScene" uid="uid://bqluw5l1vcwtl" path="res://scenes/items/Parent/parent_item.tscn" id="1_1vrhd"]
+[ext_resource type="Script" path="res://scenes/items/stone/stone.gd" id="2_30n0d"]
+
+[node name="stone" instance=ExtResource("1_1vrhd")]
+script = ExtResource("2_30n0d")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(4.66327, 4.78667)

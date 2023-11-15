@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dancix0bt6gna"]
+
+[ext_resource type="PackedScene" uid="uid://bqluw5l1vcwtl" path="res://scenes/items/Parent/parent_item.tscn" id="1_bwaet"]
+[ext_resource type="Script" path="res://scenes/items/wood/wood.gd" id="2_3kik1"]
+[ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="3_3xhv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4yuj"]
+size = Vector2(126, 126)
+
+[node name="wood" instance=ExtResource("1_bwaet")]
+script = ExtResource("2_3kik1")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_3xhv6")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_p4yuj")

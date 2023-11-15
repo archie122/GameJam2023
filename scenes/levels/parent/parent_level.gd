@@ -16,14 +16,14 @@ func _on_player_shot(pos, direction):
 	$projectiles.add_child(bullet)
 
 
-func _on_player_zombie(pos, direction):
+func _on_player_zombie(pos, _direction):
 	var zombie = spawn_zombie.instantiate() as CharacterBody2D
 	zombie.position = pos
 	
 	$enemies.add_child(zombie)
 
 
-func _on_player_bug(pos, direction):
+func _on_player_bug(pos, _direction):
 	$CPUParticles2D.position = pos
 	$CPUParticles2D.emitting = true
 	var bug = spawn_bug.instantiate() as CharacterBody2D
