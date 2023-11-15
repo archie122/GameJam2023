@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs7kqdjoxpxm"]
+[gd_scene load_steps=5 format=3 uid="uid://bs7kqdjoxpxm"]
 
 [ext_resource type="PackedScene" uid="uid://bqluw5l1vcwtl" path="res://scenes/items/Parent/parent_item.tscn" id="1_1vrhd"]
 [ext_resource type="Script" path="res://scenes/items/stone/stone.gd" id="2_30n0d"]
+[ext_resource type="Texture2D" uid="uid://cky131k15fxdl" path="res://graphics/items/rock.png" id="3_0dmir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6b0fn"]
+radius = 3.64551
 
 [node name="stone" instance=ExtResource("1_1vrhd")]
 script = ExtResource("2_30n0d")
 
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_0dmir")
+
 [node name="CollisionShape2D" parent="." index="1"]
 scale = Vector2(4.66327, 4.78667)
+shape = SubResource("CircleShape2D_6b0fn")

@@ -7,7 +7,7 @@ var spawn_bug: PackedScene = preload("res://scenes/enemies/bug/bug.tscn")
 var spawn_wood: PackedScene = preload("res://scenes/items/wood/wood.tscn")
 var spawn_stone: PackedScene = preload("res://scenes/items/stone/stone.tscn")
 var spawn_steel: PackedScene = preload("res://scenes/items/steel/steel.tscn")
-var spawn_leather: PackedScene = preload("res://scenes/items/wood/wood.tscn")
+var spawn_leather: PackedScene = preload("res://scenes/items/leather/leather.tscn")
 var spawn_raw_meat: PackedScene = preload("res://scenes/items/food/raw_meat/raw_meat.tscn")
 func _ready():
 	Globals.spawn_wood.connect(_on_spawn_wood)
