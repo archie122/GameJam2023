@@ -9,6 +9,12 @@ var spawn_stone: PackedScene = preload("res://scenes/items/stone/stone.tscn")
 var spawn_steel: PackedScene = preload("res://scenes/items/steel/steel.tscn")
 var spawn_leather: PackedScene = preload("res://scenes/items/wood/wood.tscn")
 var spawn_raw_meat: PackedScene = preload("res://scenes/items/food/raw_meat/raw_meat.tscn")
+func _ready():
+	Globals.spawn_wood.connect(_on_spawn_wood)
+	Globals.spawn_stone.connect(_on_spawn_stone)
+	Globals.spawn_steel.connect(_on_spawn_steel)
+	Globals.spawn_leather_and_raw_meat.connect(_on_spawn_leather_and_raw_meat)
+	
 
 func _on_player_shot(pos, direction):
 	var bullet = bullet_scene.instantiate() as Area2D
@@ -39,4 +45,16 @@ func _on_player_bug(pos, _direction):
 	
 	$enemies.add_child(bug)
 
+func _on_spawn_wood(pos):
+	spawn(pos,spawn_wood.instantiate() as Area2D)
+func _on_spawn_stone(pos):
+	spawn(pos,spawn_stone.instantiate() as Area2D)
+func _on_spawn_steel(pos):
+	spawn(pos,spawn_steel.instantiate() as Area2D)
+func _on_spawn_leather_and_raw_meat(pos):
+	spawn(pos,spawn_leather.instantiate() as Area2D)
+	spawn(pos+Vector2(100,0),spawn_raw_meat.instantiate() as Area2D)
 
+func spawn(pos,item):
+	item.position = pos
+	$items.add_child(item)

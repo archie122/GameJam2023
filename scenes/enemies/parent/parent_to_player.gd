@@ -23,15 +23,16 @@ func _process(delta):
 	rotate(deg_to_rad(-90))
 	
 	if health <= 0:
-		queue_free()
+		
 		var number = (int)(rng.randf_range(0,100))
 		print(number)
 		if(number <= 5):
-			print("spawn steel")
+			Globals.spawn_steel.emit(position)
 		elif(number <= 15):
-			print("spawn stone")
+			Globals.spawn_stone.emit(position)
 		elif(number <= 35):
-			print(("spawn wood"))
+			Globals.spawn_wood.emit(position)
+		queue_free()
 
 
 

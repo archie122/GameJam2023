@@ -81,3 +81,5 @@ func add_item(item,amount):
 	Globals.item_in[item] += amount
 	Globals.display_item_in()
 	
+
+

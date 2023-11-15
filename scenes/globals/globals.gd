@@ -2,6 +2,14 @@ extends Node
 
 var player_position: Vector2 = Vector2(0,0)
 
+signal spawn_wood(pos)
+signal spawn_stone(pos)
+signal spawn_steel(pos)
+signal spawn_leather_and_raw_meat(pos)
+
+
+
+var spawn: Array = [false,false,false,false,false,false]
 var item_in: Array = [0,0,0,0,0,0]
 var item_in_names: Array = ["wood", "stone", "metal", "leather", "raw meat", "cooked meat"]
 

@@ -4,3 +4,5 @@ func _ready():
 	health = 100
 	damage = 50
 	speed = 300
+
+

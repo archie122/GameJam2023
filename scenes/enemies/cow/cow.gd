@@ -17,18 +17,14 @@ func _process(delta):
 		rotate(deg_to_rad(90))
 	
 	if health <= 0:
+		Globals.spawn_leather_and_raw_meat.emit(position)
 		queue_free()
-		print("drop meat + leather")
+
 
 
 
 func hit(dmg):
 	health -= dmg
-
-
-
-
-
 
 
 func _on_area_2d_body_entered(body):
