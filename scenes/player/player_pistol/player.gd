@@ -65,10 +65,14 @@ func _on_enemy_timeout():
 
 	if(((int)(rng.randf_range(0,100)) % 2) == 0):
 		var number_spawn: int = 2
+		var selected_zombie_spawn 
 		while number_spawn !=0:
 			var zombie_spawn =  $"zombie spwans".get_children()
-			var selected_zombie_spawn = zombie_spawn[randi() % zombie_spawn.size()]
+			
+			selected_zombie_spawn = zombie_spawn[randi() % zombie_spawn.size()]
+			
 			zombie.emit(selected_zombie_spawn.global_position,playerDirection)
+			await get_tree().create_timer(.2).timeout
 			number_spawn -= 1
 	else:
 		

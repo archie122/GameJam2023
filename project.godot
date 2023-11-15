@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="try this first"
-run/main_scene="res://scenes/levels/parent/parent_level.tscn"
+run/main_scene="res://scenes/ui/main menu/canvas_layer.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://scenes/globals/globals.gd"
+TransisionLayer="*res://scenes/globals/transition layer/blank_transision.tscn"
 
 [display]
 
