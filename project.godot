@@ -19,15 +19,9 @@ config/icon="res://icon.svg"
 
 Globals="*res://scenes/globals/globals.gd"
 
-<<<<<<< HEAD
 [display]
 
 window/size/mode=2
-=======
-[dotnet]
-
-project/assembly_name="try this first"
->>>>>>> 89917aa87ef1bff3af0e9dd4769272648ba3ae54
 
 [input]
 
