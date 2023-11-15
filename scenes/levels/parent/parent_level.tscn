@@ -12,6 +12,8 @@
 [node name="parent_level" type="Node2D"]
 script = ExtResource("1_q7se2")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("2_52vv2")
@@ -58,8 +60,16 @@ position = Vector2(187, -374)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="main display" parent="CanvasLayer" instance=ExtResource("8_qt04x")]
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = -964.0
+offset_top = 307.0
+offset_right = -807.0
+offset_bottom = 539.0
 
-[connection signal="bug" from="player" to="." method="_on_player_bug"]
+[node name="main display" parent="CanvasLayer" instance=ExtResource("8_qt04x")]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+
 [connection signal="shot" from="player" to="." method="_on_player_shot"]
-[connection signal="zombie" from="player" to="." method="_on_player_zombie"]
