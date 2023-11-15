@@ -14,11 +14,6 @@ texture = ExtResource("2_52vv2")
 region_enabled = true
 region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 
-[node name="player" parent="." instance=ExtResource("1_bhedc")]
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-position_smoothing_enabled = true
-
 [node name="projectiles" type="Node2D" parent="."]
 
 [node name="enemies" type="Node2D" parent="."]
@@ -26,4 +21,10 @@ position_smoothing_enabled = true
 [node name="enemie" parent="." instance=ExtResource("3_0foou")]
 position = Vector2(978, 190)
 
+[node name="player" parent="." instance=ExtResource("1_bhedc")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+
 [connection signal="shot" from="player" to="." method="_on_player_shot"]
+[connection signal="zombie" from="player" to="." method="_on_player_zombie"]

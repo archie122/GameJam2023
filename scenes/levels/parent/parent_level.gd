@@ -14,3 +14,10 @@ func _on_player_shot(pos, direction):
 	bullet.direction = direction
 	
 	$projectiles.add_child(bullet)
+
+
+func _on_player_zombie(pos, direction):
+	var zombie = spawn_zombie.instantiate() as CharacterBody2D
+	zombie.position = pos
+	
+	$enemies.add_child(zombie)

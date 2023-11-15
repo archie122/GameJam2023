@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs2l0wqtsl481"]
+[gd_scene load_steps=4 format=3 uid="uid://bs2l0wqtsl481"]
 
 [ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_f2bni"]
+[ext_resource type="Script" path="res://scenes/enemies/bug/bug.gd" id="1_g8v3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdku7"]
 size = Vector2(128, 128)
 
 [node name="bug" type="CharacterBody2D"]
+script = ExtResource("1_g8v3y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_f2bni")

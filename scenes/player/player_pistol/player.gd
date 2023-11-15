@@ -9,7 +9,7 @@ var took_damage: bool = false
 signal shot(pos, direction)
 signal bug(pos, direction)
 signal zombie(pos, direction)
-
+var playerDirection: Vector2
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -26,13 +26,12 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	
 	#to shoot a laser
-	var playerDirection = (get_global_mouse_position() - position).normalized()
+	playerDirection = (get_global_mouse_position() - position).normalized()
 	if(Input.is_action_just_pressed("shoot") && can_shoot):
 		can_shoot = false
 		$"shot cooldown".start()
 		var bullet_markers = $"shot spawns".get_children()
 		var selected_bullet = bullet_markers[randi() % bullet_markers.size()]
-		print("test", selected_bullet.global_position)
 		shot.emit(selected_bullet.global_position,playerDirection)
 	
 	
@@ -57,6 +56,19 @@ func _on_iframe_timeout():
 
 func _on_enemy_timeout():
 	if(((int)(rng.randf_range(0,100)) % 2) == 0):
-		print("zombie")
+		var number_spawn: int = 2
+		while number_spawn !=0:
+			var zombie_spawn =  $"zombie spwans".get_children()
+			var selected_zombie_spawn = zombie_spawn[randi() % zombie_spawn.size()]
+			zombie.emit(selected_zombie_spawn.global_position,playerDirection)
+			number_spawn -= 1
+			
+		
 	else:
-		print("bug")
+		
+		var bug_spawn =  $"bug spawns".get_children()
+		var selected_bug_spawn = bug_spawn[randi() % bug_spawn.size()]
+		$CPUParticles2D.position = selected_bug_spawn.global_position
+		$CPUParticles2D.emitting = true
+		await get_tree().create_timer(2).timeout
+		bug.emit(selected_bug_spawn.global_position,playerDirection)
