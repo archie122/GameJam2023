@@ -8,6 +8,7 @@ var took_damage: bool = false
 @export var can_spawn: bool = true
 
 
+
 signal shot(pos, direction)
 signal bug(pos, direction)
 signal zombie(pos, direction)
