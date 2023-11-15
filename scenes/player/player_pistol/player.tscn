@@ -152,6 +152,7 @@ position = Vector2(900, -600)
 wait_time = 3.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(192, 14)
 emitting = false
 amount = 24

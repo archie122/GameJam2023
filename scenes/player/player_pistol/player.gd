@@ -5,6 +5,8 @@ var health: int = 200
 var speed: int = 400
 var can_shoot: bool = true
 var took_damage: bool = false
+@export var can_spawn: bool = true
+
 
 signal shot(pos, direction)
 signal bug(pos, direction)
@@ -55,6 +57,10 @@ func _on_iframe_timeout():
 
 
 func _on_enemy_timeout():
+	if(!can_spawn):
+		return
+
+
 	if(((int)(rng.randf_range(0,100)) % 2) == 0):
 		var number_spawn: int = 2
 		while number_spawn !=0:
@@ -62,13 +68,13 @@ func _on_enemy_timeout():
 			var selected_zombie_spawn = zombie_spawn[randi() % zombie_spawn.size()]
 			zombie.emit(selected_zombie_spawn.global_position,playerDirection)
 			number_spawn -= 1
-			
-		
 	else:
 		
 		var bug_spawn =  $"bug spawns".get_children()
 		var selected_bug_spawn = bug_spawn[randi() % bug_spawn.size()]
 		$CPUParticles2D.position = selected_bug_spawn.global_position
 		$CPUParticles2D.emitting = true
+		print("start bug")
 		await get_tree().create_timer(2).timeout
+		print("spawn bug")
 		bug.emit(selected_bug_spawn.global_position,playerDirection)

@@ -21,3 +21,15 @@ func _on_player_zombie(pos, direction):
 	zombie.position = pos
 	
 	$enemies.add_child(zombie)
+
+
+func _on_player_bug(pos, direction):
+	$CPUParticles2D.position = pos
+	$CPUParticles2D.emitting = true
+	var bug = spawn_bug.instantiate() as CharacterBody2D
+	bug.position = pos
+	
+	print("start bug")
+	await get_tree().create_timer(2).timeout
+	print("spawn bug")
+	$enemies.add_child(bug)
