@@ -43,4 +43,5 @@ func hit(dmg):
 func _on_hit_player_body_entered(body):
 	if("hit" in body):
 		body.hit(damage)
+		print(damage, " ", speed)
 

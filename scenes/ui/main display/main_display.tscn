@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgj1nyxenyhp6"]
+
+[ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_4aw4j"]
+[ext_resource type="Script" path="res://scenes/ui/main display/main_display.gd" id="1_s23gi"]
+
+[node name="main display" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s23gi")
+
+[node name="items" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -176.0
+offset_right = 144.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="items"]
+layout_mode = 2
+
+[node name="wood" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/wood"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/wood"]
+layout_mode = 2
+text = "0 wood"
+
+[node name="stone" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/stone"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/stone"]
+layout_mode = 2
+text = "0 stone"
+
+[node name="steel" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/steel"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/steel"]
+layout_mode = 2
+text = "0 steel"
+
+[node name="leather" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/leather"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/leather"]
+layout_mode = 2
+text = "0 leather"
+
+[node name="raw meat" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/raw meat"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/raw meat"]
+layout_mode = 2
+text = "0 raw Meat"
+
+[node name="cooked meat" type="HBoxContainer" parent="items/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="items/VBoxContainer/cooked meat"]
+layout_mode = 2
+texture = ExtResource("1_4aw4j")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="items/VBoxContainer/cooked meat"]
+layout_mode = 2
+text = "0 cooked meat"
+
+[node name="health bar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="health bar"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+value = 100.0
+rounded = true
