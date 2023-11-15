@@ -21,6 +21,8 @@ position_smoothing_enabled = true
 
 [node name="projectiles" type="Node2D" parent="."]
 
+[node name="enemies" type="Node2D" parent="."]
+
 [node name="enemie" parent="." instance=ExtResource("3_0foou")]
 position = Vector2(978, 190)
 

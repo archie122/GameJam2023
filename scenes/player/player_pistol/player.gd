@@ -7,7 +7,13 @@ var can_shoot: bool = true
 var took_damage: bool = false
 
 signal shot(pos, direction)
+signal bug(pos, direction)
+signal zombie(pos, direction)
 
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	$enemy.start()
 func _process(_delta):
 	if(health<= 0):
 		queue_free()
@@ -28,6 +34,8 @@ func _process(_delta):
 		var selected_bullet = bullet_markers[randi() % bullet_markers.size()]
 		print("test", selected_bullet.global_position)
 		shot.emit(selected_bullet.global_position,playerDirection)
+	
+	
 
 
 
@@ -39,9 +47,16 @@ func hit(damage):
 	if(!took_damage):
 		$Iframe.start()
 		took_damage = true
-		health -= 50
+		health -= damage
 
 
 
 func _on_iframe_timeout():
 	took_damage = false
+
+
+func _on_enemy_timeout():
+	if(((int)(rng.randf_range(0,100)) % 2) == 0):
+		print("zombie")
+	else:
+		print("bug")

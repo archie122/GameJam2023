@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_673r1"]
 [ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ygw"]
-size = Vector2(126, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alnw5"]
+size = Vector2(126.072, 127.929)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 129
@@ -12,15 +12,18 @@ collision_mask = 30
 script = ExtResource("1_q186s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_40ygw")
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_alnw5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
 texture = ExtResource("1_673r1")
 
 [node name="shot cooldown" type="Timer" parent="."]
+wait_time = 0.25
 
 [node name="shot spawns" type="Node2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
 
 [node name="Marker2D" type="Marker2D" parent="shot spawns"]
 position = Vector2(65, 17)
@@ -37,5 +40,118 @@ scale = Vector2(1.61995, 1)
 [node name="Iframe" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="bug spawns" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="bug spawns"]
+position = Vector2(-245, -185)
+
+[node name="Marker2D2" type="Marker2D" parent="bug spawns"]
+position = Vector2(-376, -51)
+
+[node name="Marker2D3" type="Marker2D" parent="bug spawns"]
+position = Vector2(-82, -253)
+
+[node name="Marker2D4" type="Marker2D" parent="bug spawns"]
+position = Vector2(177, -234)
+
+[node name="Marker2D5" type="Marker2D" parent="bug spawns"]
+position = Vector2(343, -72)
+
+[node name="Marker2D6" type="Marker2D" parent="bug spawns"]
+position = Vector2(270, 161)
+
+[node name="Marker2D7" type="Marker2D" parent="bug spawns"]
+position = Vector2(79, 206)
+
+[node name="Marker2D8" type="Marker2D" parent="bug spawns"]
+position = Vector2(-98, 190)
+
+[node name="Marker2D9" type="Marker2D" parent="bug spawns"]
+position = Vector2(351, 62)
+
+[node name="Marker2D10" type="Marker2D" parent="bug spawns"]
+position = Vector2(-298, 51)
+
+[node name="zombie spwans" type="Node2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, 0)
+
+[node name="Marker2D7" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, -300)
+
+[node name="Marker2D8" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, -600)
+
+[node name="Marker2D9" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, -750)
+
+[node name="Marker2D10" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-600, -750)
+
+[node name="Marker2D11" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-300, -750)
+
+[node name="Marker2D12" type="Marker2D" parent="zombie spwans"]
+position = Vector2(0, -750)
+
+[node name="Marker2D13" type="Marker2D" parent="zombie spwans"]
+position = Vector2(300, -750)
+
+[node name="Marker2D14" type="Marker2D" parent="zombie spwans"]
+position = Vector2(600, -750)
+
+[node name="Marker2D15" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, -750)
+
+[node name="Marker2D3" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, 300)
+
+[node name="Marker2D4" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, 600)
+
+[node name="Marker2D5" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, 750)
+
+[node name="Marker2D6" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-900, 750)
+
+[node name="Marker2D16" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-600, 750)
+
+[node name="Marker2D17" type="Marker2D" parent="zombie spwans"]
+position = Vector2(-300, 750)
+
+[node name="Marker2D18" type="Marker2D" parent="zombie spwans"]
+position = Vector2(300, 750)
+
+[node name="Marker2D19" type="Marker2D" parent="zombie spwans"]
+position = Vector2(0, 750)
+
+[node name="Marker2D20" type="Marker2D" parent="zombie spwans"]
+position = Vector2(600, 750)
+
+[node name="Marker2D21" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, 750)
+
+[node name="Marker2D22" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, 600)
+
+[node name="Marker2D23" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, 300)
+
+[node name="Marker2D24" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, 0)
+
+[node name="Marker2D25" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, -300)
+
+[node name="Marker2D26" type="Marker2D" parent="zombie spwans"]
+position = Vector2(900, -600)
+
+[node name="enemy" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="shot cooldown" to="." method="_on_shot_cooldown_timeout"]
 [connection signal="timeout" from="Iframe" to="." method="_on_iframe_timeout"]
+[connection signal="timeout" from="enemy" to="." method="_on_enemy_timeout"]

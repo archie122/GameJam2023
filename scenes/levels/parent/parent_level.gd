@@ -1,6 +1,8 @@
 extends Node2D
 
 var bullet_scene: PackedScene = preload("res://scenes/projectiles/bullet/bullet.tscn")
+var spawn_zombie: PackedScene = preload("res://scenes/enemies/zombie/enemie.tscn")
+var spawn_bug: PackedScene = preload("res://scenes/enemies/bug/bug.tscn")
 
 
 func _on_player_shot(pos, direction):

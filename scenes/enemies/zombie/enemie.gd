@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var health: int = 100
-var damage: int = 400
+var damage: int = 100
 
 var speed: int = 300
 var direction: Vector2 = Globals.player_position
@@ -28,3 +28,5 @@ func hit():
 func _on_hit_player_body_entered(body):
 	if("hit" in body):
 		body.hit(damage)
+		
+		
