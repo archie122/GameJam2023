@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl43yrmj12kta"
-path="res://.godot/imported/floors-Sheet.png-64c2c0bae4113397560bca1e7e5b2701.ctex"
+path="res://.godot/imported/tile_map.png-e02a7e4f7b828ff8b6cc4ed2e63e8906.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/world_objects/floors-Sheet.png"
-dest_files=["res://.godot/imported/floors-Sheet.png-64c2c0bae4113397560bca1e7e5b2701.ctex"]
+source_file="res://graphics/world_objects/tile_map.png"
+dest_files=["res://.godot/imported/tile_map.png-e02a7e4f7b828ff8b6cc4ed2e63e8906.ctex"]
 
 [params]
 
