@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8b4gdry5v1yq"]
+[gd_scene load_steps=5 format=3 uid="uid://b8b4gdry5v1yq"]
 
 [ext_resource type="Texture2D" uid="uid://5mwylo6jkprf" path="res://graphics/world_objects/furnace-Sheet.png" id="1_lxlew"]
 [ext_resource type="Script" path="res://scenes/levels/homebase/crafting items/house_crafting.gd" id="1_s33oo"]
 [ext_resource type="Texture2D" uid="uid://l44tejf6rpgb" path="res://graphics/world_objects/workbench-Sheet.png" id="2_ms5ds"]
+[ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="4_1hbjj"]
 
 [node name="house crafting" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 27.0
-offset_top = 11.0
-offset_right = 67.0
-offset_bottom = 51.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_s33oo")
 
+[node name="house" type="Node2D" parent="."]
+
 [node name="bench" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 112.0
 offset_bottom = 61.0
 
@@ -27,6 +29,7 @@ layout_mode = 2
 text = "crafting bench"
 
 [node name="furance" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 200.0
 offset_top = -3.0
 offset_right = 274.0
@@ -83,10 +86,10 @@ grow_vertical = 2
 layout_mode = 2
 text = "craft"
 
-[node name="house" type="Node2D" parent="."]
+[node name="player" parent="." instance=ExtResource("4_1hbjj")]
+can_spawn = false
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
+[node name="Camera2D" type="Camera2D" parent="player"]
 
 [connection signal="pressed" from="bench/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="furance/Button2" to="." method="_on_button_2_pressed"]
