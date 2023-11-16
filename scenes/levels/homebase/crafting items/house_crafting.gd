@@ -29,4 +29,4 @@ func _on_button_3_pressed():
 
 #open the armour crafting menu
 func _on_button_4_pressed():
-	print("open the armour options")
+	TransisionLayer.change_scean("res://scenes/levels/forest/forest1/forest.tscn")
