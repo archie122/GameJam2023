@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bokrdte2bswx3"]
+[gd_scene load_steps=7 format=3 uid="uid://bokrdte2bswx3"]
 
 [ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="1_bhedc"]
 [ext_resource type="Script" path="res://scenes/levels/parent/parent_level.gd" id="1_q7se2"]
 [ext_resource type="Texture2D" uid="uid://dxcgxovyg4jrd" path="res://stones.png" id="2_52vv2"]
+[ext_resource type="PackedScene" uid="uid://dybd24sd8vumn" path="res://scenes/levels/homebase/house.tscn" id="6_yrvlk"]
 [ext_resource type="PackedScene" uid="uid://cgj1nyxenyhp6" path="res://scenes/ui/main display/main_display.tscn" id="8_qt04x"]
 [ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="9_dqdwu"]
 
@@ -16,6 +17,9 @@ texture = ExtResource("2_52vv2")
 region_enabled = true
 region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 
+[node name="house" parent="." instance=ExtResource("6_yrvlk")]
+position = Vector2(288, 166)
+
 [node name="projectiles" type="Node2D" parent="."]
 
 [node name="enemies" type="Node2D" parent="."]
@@ -23,6 +27,7 @@ region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 [node name="items" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
+can_spawn = false
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
