@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8b4gdry5v1yq"]
+
+[ext_resource type="Texture2D" uid="uid://5mwylo6jkprf" path="res://graphics/world_objects/furnace-Sheet.png" id="1_lxlew"]
+[ext_resource type="Script" path="res://scenes/levels/homebase/crafting items/house_crafting.gd" id="1_s33oo"]
+[ext_resource type="Texture2D" uid="uid://l44tejf6rpgb" path="res://graphics/world_objects/workbench-Sheet.png" id="2_ms5ds"]
+
+[node name="house crafting" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.0
+offset_top = 11.0
+offset_right = 67.0
+offset_bottom = 51.0
+script = ExtResource("1_s33oo")
+
+[node name="bench" type="VBoxContainer" parent="."]
+offset_right = 112.0
+offset_bottom = 61.0
+
+[node name="Button1" type="Button" parent="bench"]
+layout_mode = 2
+keep_pressed_outside = true
+text = "200 Wood"
+
+[node name="Label" type="Label" parent="bench"]
+layout_mode = 2
+text = "crafting bench"
+
+[node name="furance" type="VBoxContainer" parent="."]
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 274.0
+offset_bottom = 58.0
+
+[node name="Button2" type="Button" parent="furance"]
+layout_mode = 2
+text = "70 stone"
+
+[node name="Label" type="Label" parent="furance"]
+layout_mode = 2
+text = "furance"
+
+[node name="furance2" type="Sprite2D" parent="."]
+position = Vector2(228, 115)
+texture = ExtResource("1_lxlew")
+hframes = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="furance2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -52.0
+offset_right = -9.5
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button3" type="Button" parent="furance2/VBoxContainer"]
+layout_mode = 2
+text = "craft"
+
+[node name="crafting bench" type="Sprite2D" parent="."]
+position = Vector2(58, 114)
+texture = ExtResource("2_ms5ds")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="crafting bench"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -52.0
+offset_right = -9.5
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button4" type="Button" parent="crafting bench/VBoxContainer"]
+layout_mode = 2
+text = "craft"
+
+[node name="house" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[connection signal="pressed" from="bench/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="furance/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="furance2/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="crafting bench/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
