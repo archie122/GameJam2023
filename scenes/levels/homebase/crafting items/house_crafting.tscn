@@ -14,6 +14,7 @@ offset_bottom = 51.0
 script = ExtResource("1_s33oo")
 
 [node name="bench" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 112.0
 offset_bottom = 61.0
 
@@ -27,6 +28,7 @@ layout_mode = 2
 text = "crafting bench"
 
 [node name="furance" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 200.0
 offset_top = -3.0
 offset_right = 274.0

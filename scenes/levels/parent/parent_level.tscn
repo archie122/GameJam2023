@@ -27,7 +27,6 @@ position = Vector2(288, 166)
 [node name="items" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
-can_spawn = false
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
