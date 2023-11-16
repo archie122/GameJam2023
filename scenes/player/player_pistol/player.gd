@@ -4,6 +4,7 @@ var health: int = 200
 var max_health:int = 200
 var speed: int = 400
 var can_shoot: bool = true
+
 var took_damage: bool = false
 @export var can_spawn: bool = true
 
@@ -57,8 +58,10 @@ func _on_shot_cooldown_timeout():
 func hit(damage):
 	
 	if(!took_damage):
+#		
 		$Iframe.start()
-		$AnimationPlayer.play("Iframe")
+		
+		$AnimationPlayer2.play("Iframe")
 		took_damage = true
 		health -= damage
 
