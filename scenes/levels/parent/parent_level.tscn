@@ -25,6 +25,7 @@ region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

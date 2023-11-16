@@ -1,10 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://6y4o8jqhp03g"]
+[gd_scene load_steps=9 format=3 uid="uid://6y4o8jqhp03g"]
 
-[ext_resource type="Texture2D" uid="uid://cjdrghbhl5n3o" path="res://icon.svg" id="1_673r1"]
 [ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
+[ext_resource type="Texture2D" uid="uid://7ic0ftmcw47d" path="res://graphics/characters/player-Sheet.png" id="2_r7pac"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_alnw5"]
-size = Vector2(126.072, 127.929)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlxxn"]
+radius = 24.1868
+
+[sub_resource type="Animation" id="Animation_hi802"]
+resource_name = "shoot_left"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_yal84"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1anik"]
+resource_name = "shoot_right"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_7td1m"]
+resource_name = "Iframe"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.9),
+"transitions": PackedFloat32Array(0.435275, 1, 1, 1, 1, 1, 1, 1, 1, 0.435275),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.482353), Color(1, 1, 1, 0.705882), Color(1, 1, 1, 0.482353), Color(1, 1, 1, 0.705882), Color(1, 1, 1, 0.482353), Color(1, 1, 1, 0.862745), Color(1, 1, 1, 0.482353), Color(1, 1, 1, 0.862745), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26nwv"]
+_data = {
+"Iframe": SubResource("Animation_7td1m"),
+"RESET": SubResource("Animation_yal84"),
+"shoot_left": SubResource("Animation_hi802"),
+"shoot_right": SubResource("Animation_1anik")
+}
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 129
@@ -12,32 +83,42 @@ collision_mask = 30
 script = ExtResource("1_q186s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_alnw5")
+shape = SubResource("CircleShape2D_dlxxn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
-texture = ExtResource("1_673r1")
+texture_filter = 1
+position = Vector2(12, 0)
+rotation = 1.5708
+texture = ExtResource("2_r7pac")
+hframes = 3
 
 [node name="shot cooldown" type="Timer" parent="."]
 wait_time = 0.25
 
-[node name="shot spawns" type="Node2D" parent="."]
+[node name="shot spawnsR" type="Node2D" parent="."]
 position = Vector2(-3.8147e-06, 0)
 
-[node name="Marker2D" type="Marker2D" parent="shot spawns"]
-position = Vector2(65, 17)
+[node name="Marker2D" type="Marker2D" parent="shot spawnsR"]
+position = Vector2(37, 5)
 scale = Vector2(1.61995, 1)
 
-[node name="Marker2D2" type="Marker2D" parent="shot spawns"]
-position = Vector2(65, -18)
+[node name="Marker2D3" type="Marker2D" parent="shot spawnsR"]
+position = Vector2(38, 4)
 scale = Vector2(1.61995, 1)
 
-[node name="Marker2D3" type="Marker2D" parent="shot spawns"]
-position = Vector2(65, 0)
+[node name="shot spawnsL" type="Node2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="shot spawnsL"]
+position = Vector2(37, -5)
+scale = Vector2(1.61995, 1)
+
+[node name="Marker2D4" type="Marker2D" parent="shot spawnsL"]
+position = Vector2(38, -4)
 scale = Vector2(1.61995, 1)
 
 [node name="Iframe" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.25
 
 [node name="bug spawns" type="Node2D" parent="."]
 
@@ -149,7 +230,12 @@ position = Vector2(900, -300)
 position = Vector2(900, -600)
 
 [node name="enemy" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_26nwv")
+}
 
 [connection signal="timeout" from="shot cooldown" to="." method="_on_shot_cooldown_timeout"]
 [connection signal="timeout" from="Iframe" to="." method="_on_iframe_timeout"]
