@@ -1,21 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8b4gdry5v1yq"]
+[gd_scene load_steps=7 format=3 uid="uid://b8b4gdry5v1yq"]
 
 [ext_resource type="Texture2D" uid="uid://5mwylo6jkprf" path="res://graphics/world_objects/furnace-Sheet.png" id="1_lxlew"]
 [ext_resource type="Script" path="res://scenes/levels/homebase/crafting items/house_crafting.gd" id="1_s33oo"]
 [ext_resource type="Texture2D" uid="uid://l44tejf6rpgb" path="res://graphics/world_objects/workbench-Sheet.png" id="2_ms5ds"]
 [ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="4_1hbjj"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy7mu"]
+size = Vector2(63, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vl2w"]
+size = Vector2(62, 55)
+
 [node name="house crafting" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("1_s33oo")
 
-[node name="house" type="Node2D" parent="."]
+[node name="map" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="map"]
+format = 2
 
 [node name="bench" type="VBoxContainer" parent="."]
-layout_mode = 0
 offset_right = 112.0
 offset_bottom = 61.0
 
@@ -29,7 +38,6 @@ layout_mode = 2
 text = "crafting bench"
 
 [node name="furance" type="VBoxContainer" parent="."]
-layout_mode = 0
 offset_left = 200.0
 offset_top = -3.0
 offset_right = 274.0
@@ -43,12 +51,20 @@ text = "70 stone"
 layout_mode = 2
 text = "furance"
 
-[node name="furance2" type="Sprite2D" parent="."]
-position = Vector2(228, 115)
+[node name="furance2" type="Area2D" parent="."]
+visible = false
+position = Vector2(58, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furance2"]
+position = Vector2(169.5, 0.5)
+shape = SubResource("RectangleShape2D_cy7mu")
+
+[node name="furance2" type="Sprite2D" parent="furance2"]
+position = Vector2(170, 1)
 texture = ExtResource("1_lxlew")
 hframes = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="furance2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="furance2/furance2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,15 +77,22 @@ offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button3" type="Button" parent="furance2/VBoxContainer"]
+[node name="Button3" type="Button" parent="furance2/furance2/VBoxContainer"]
 layout_mode = 2
 text = "craft"
 
-[node name="crafting bench" type="Sprite2D" parent="."]
+[node name="crafting bench" type="Area2D" parent="."]
+visible = false
 position = Vector2(58, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crafting bench"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_0vl2w")
+
+[node name="crafting bench" type="Sprite2D" parent="crafting bench"]
 texture = ExtResource("2_ms5ds")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="crafting bench"]
+[node name="VBoxContainer" type="VBoxContainer" parent="crafting bench/crafting bench"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -82,16 +105,15 @@ offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button4" type="Button" parent="crafting bench/VBoxContainer"]
+[node name="Button4" type="Button" parent="crafting bench/crafting bench/VBoxContainer"]
 layout_mode = 2
 text = "craft"
 
 [node name="player" parent="." instance=ExtResource("4_1hbjj")]
-can_spawn = false
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
 [connection signal="pressed" from="bench/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="furance/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="furance2/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="crafting bench/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="furance2/furance2/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="crafting bench/crafting bench/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

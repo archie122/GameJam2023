@@ -12,14 +12,14 @@ func _process(delta):
 
 func _on_button_1_pressed():
 	if(Globals.item_in[0] >= 200):
-		print("make table")
+		$"crafting bench".show()
 	else:
 		print("you do not have the required amount")
 
 
 func _on_button_2_pressed():
 	if(Globals.item_in[1] >= 70):
-		print("you make a furance ")
+		$furance2.show()
 	else:
 		print("you do not have the required amount")
 
@@ -29,4 +29,4 @@ func _on_button_3_pressed():
 
 #open the armour crafting menu
 func _on_button_4_pressed():
-	print("open the armour options")
+	TransisionLayer.change_scean("res://scenes/levels/forest/forest1/forest.tscn")
