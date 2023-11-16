@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dybd24sd8vumn"]
 
 [ext_resource type="Script" path="res://scenes/levels/homebase/house.gd" id="1_wq1df"]
-[ext_resource type="Texture2D" uid="uid://cl43yrmj12kta" path="res://graphics/world_objects/floors-Sheet.png" id="2_pakfj"]
+[ext_resource type="Texture2D" uid="uid://cl43yrmj12kta" path="res://graphics/world_objects/tile_map.png" id="2_pakfj"]
 [ext_resource type="PackedScene" uid="uid://b8b4gdry5v1yq" path="res://scenes/levels/homebase/crafting items/house_crafting.tscn" id="3_3keh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooexx"]
