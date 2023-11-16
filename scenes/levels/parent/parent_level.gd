@@ -1,4 +1,5 @@
 extends Node2D
+class_name  parant_level
 
 var bullet_scene: PackedScene = preload("res://scenes/projectiles/bullet/bullet.tscn")
 var spawn_zombie: PackedScene = preload("res://scenes/enemies/zombie/enemie.tscn")

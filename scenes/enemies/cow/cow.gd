@@ -12,9 +12,9 @@ func _process(delta):
 		
 		position += direction  * delta * speed
 		velocity = Vector2.ZERO
-		look_at(direction)
+		look_at(position+Vector2(50,0))
 		move_and_slide()
-		rotate(deg_to_rad(90))
+#		rotate(deg_to_rad(90))
 	
 	if health <= 0:
 		Globals.spawn_leather_and_raw_meat.emit(position)

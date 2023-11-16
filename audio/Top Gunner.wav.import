@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://bmd8ahyreqhca"
-=======
-uid="uid://dyqei4mnlii6h"
->>>>>>> c54b5298f62ac5ccdc0c1b4778a6f204724b62d9
+uid="uid://dpdpxu8uvfhrs"
 path="res://.godot/imported/Top Gunner.wav-5aa6630f1d1e5eefd33a9dd88ebebe59.sample"
 
 [deps]
