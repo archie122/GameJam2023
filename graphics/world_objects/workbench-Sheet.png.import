@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://yxknto23sblu"
+=======
+uid="uid://l44tejf6rpgb"
+>>>>>>> 43007d33401abaaea1b4790b020adbd4f44c7620
+path="res://.godot/imported/workbench-Sheet.png-8f158ceb083c94c8e8b8a300cbdf714a.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://graphics/world_objects/workbench-Sheet.png"
+dest_files=["res://.godot/imported/workbench-Sheet.png-8f158ceb083c94c8e8b8a300cbdf714a.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

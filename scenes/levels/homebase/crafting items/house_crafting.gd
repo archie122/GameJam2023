@@ -1,0 +1,32 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_button_1_pressed():
+	if(Globals.item_in[0] >= 200):
+		print("make table")
+	else:
+		print("you do not have the required amount")
+
+
+func _on_button_2_pressed():
+	if(Globals.item_in[1] >= 70):
+		print("you make a furance ")
+	else:
+		print("you do not have the required amount")
+
+#open the furance crafting options
+func _on_button_3_pressed():
+	TransisionLayer.change_scean("res://scenes/levels/parent/parent_level.tscn")
+
+#open the armour crafting menu
+func _on_button_4_pressed():
+	print("open the armour options")
