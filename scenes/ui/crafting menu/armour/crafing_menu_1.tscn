@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm8gd3bk0o6ib"]
+[gd_scene load_steps=6 format=3 uid="uid://cm8gd3bk0o6ib"]
 
 [ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="1_3levv"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/crafing_menu_1.gd" id="1_pph14"]
+[ext_resource type="FontFile" uid="uid://ysg5p0qbndf5" path="res://graphics/fonts/ARCADECLASSIC.TTF" id="2_8wmp2"]
 [ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="2_uwsch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5v827"]
@@ -67,6 +68,7 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "leather armour"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
@@ -81,6 +83,7 @@ text = "equipped"
 
 [node name="leather" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "craft "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/leather"]
@@ -96,6 +99,7 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/leather/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "X 50"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
@@ -104,6 +108,7 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "steel armour"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
@@ -118,6 +123,7 @@ text = "equipped"
 
 [node name="steel" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "craft "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2/steel"]
@@ -133,6 +139,7 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "X 50"
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
@@ -142,6 +149,7 @@ expand_mode = 3
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8wmp2")
 text = "X 75
 "
 

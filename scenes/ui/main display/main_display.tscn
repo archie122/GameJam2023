@@ -135,6 +135,7 @@ grow_horizontal = 2
 [node name="ProgressBar" type="ProgressBar" parent="health bar"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("9_1l0nw")
 theme_override_fonts/font = ExtResource("3_qup12")
 theme_override_font_sizes/font_size = 15
@@ -143,4 +144,5 @@ value = 100.0
 rounded = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="health bar"]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2

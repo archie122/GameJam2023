@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bunhsok8r62ol"]
+[gd_scene load_steps=4 format=3 uid="uid://bunhsok8r62ol"]
 
 [ext_resource type="Script" path="res://scenes/ui/death menu/death_menu.gd" id="1_yhwsp"]
+[ext_resource type="FontFile" uid="uid://ysg5p0qbndf5" path="res://graphics/fonts/ARCADECLASSIC.TTF" id="2_jgqfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_whlv2"]
 font_size = 40
@@ -19,6 +20,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -11.0
+offset_right = -1.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -39,6 +44,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jgqfd")
 text = "You drop some of your items to make your escape"
 label_settings = SubResource("LabelSettings_whlv2")
 

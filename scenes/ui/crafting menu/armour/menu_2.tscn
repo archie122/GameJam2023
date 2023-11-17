@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmuoncna7twv"]
+[gd_scene load_steps=6 format=3 uid="uid://bmuoncna7twv"]
 
 [ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="1_5aqex"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/menu_2.gd" id="1_sngvs"]
 [ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="2_kb84f"]
+[ext_resource type="FontFile" uid="uid://ysg5p0qbndf5" path="res://graphics/fonts/ARCADECLASSIC.TTF" id="2_rjldd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lb2bc"]
 font_size = 30
@@ -25,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.0
-offset_top = -148.0
-offset_right = 147.0
-offset_bottom = 152.0
+offset_left = -309.0
+offset_top = -141.0
+offset_right = 141.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.360784)
@@ -73,6 +74,7 @@ theme_override_constants/separation = 6
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rjldd")
 text = "Cooked meat"
 horizontal_alignment = 1
 
@@ -83,6 +85,7 @@ expand_mode = 5
 
 [node name="cook" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rjldd")
 text = "craft "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/cook"]
