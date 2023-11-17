@@ -14,4 +14,4 @@ func _process(delta):
 	$items/VBoxContainer/leather/Label.text = var_to_str(Globals.item_in[3])
 	$"items/VBoxContainer/raw meat/Label".text = var_to_str(Globals.item_in[4])
 	$"items/VBoxContainer/cooked meat/Label".text = var_to_str(Globals.item_in[5])
-	$"health bar/ProgressBar".value = ((((float)(Globals.player_health))/((float)(Globals.player_max_health)))*100)
+	$"health bar/TextureProgressBar".value = ((((float)(Globals.player_health))/((float)(Globals.player_max_health)))*100)

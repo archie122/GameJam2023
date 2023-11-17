@@ -17,9 +17,11 @@ func pauseMenu():
 	if(paused):
 		pause_menu.hide()
 		Engine.time_scale = 1
+		$"pause menu".stop()
 	else:
 		pause_menu.show()
 		Engine.time_scale = 0
+		$"pause menu".play()
 		
 	
 	paused = !paused
@@ -34,6 +36,8 @@ func _process(delta):
 	if(Input.is_action_just_pressed("pause")):
 		
 		pauseMenu()
+		
+		
 	
 	$CanvasLayer/timer.text = var_to_str((round($return.time_left)))
 	
@@ -58,12 +62,13 @@ func _on_player_zombie(pos, _direction):
 func _on_player_bug(pos, _direction):
 	$CPUParticles2D.position = pos
 	$CPUParticles2D.emitting = true
+	$"bug spwan".play()
 	var bug = spawn_bug.instantiate() as CharacterBody2D
 	bug.position = pos
 	
 	
 	await get_tree().create_timer(2).timeout
-	
+	$"bug spwan".stop()
 	$enemies.add_child(bug)
 
 func _on_spawn_wood(pos):

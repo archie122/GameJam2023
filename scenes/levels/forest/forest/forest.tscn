@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://q4rg7qrqtd2v"]
+[gd_scene load_steps=10 format=3 uid="uid://q4rg7qrqtd2v"]
 
 [ext_resource type="PackedScene" uid="uid://bokrdte2bswx3" path="res://scenes/levels/parent/parent_level.tscn" id="1_ra63k"]
 [ext_resource type="Script" path="res://scenes/levels/forest/forest/forest.gd" id="2_uy0t1"]
 [ext_resource type="PackedScene" uid="uid://damn4dvdf1fc3" path="res://scenes/levels/forest/forest1/forest.tscn" id="3_l5m1h"]
 [ext_resource type="PackedScene" uid="uid://x2ls441w0ahd" path="res://scenes/enemies/cow/cow.tscn" id="4_0vlnc"]
+[ext_resource type="AudioStream" uid="uid://mjdt0nmudjp1" path="res://audio/TopGunner Level1.wav" id="5_v3s8l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hc1um"]
 normal = Vector2(-1, 0)
@@ -29,49 +30,41 @@ script = ExtResource("2_uy0t1")
 
 [node name="cow" type="Node2D" parent="." index="1"]
 
-[node name="spawn markers" type="Node2D" parent="cow" index="0"]
+[node name="Cow" parent="cow" index="0" instance=ExtResource("4_0vlnc")]
+position = Vector2(-576, -3460)
 
-[node name="Marker2D" type="Marker2D" parent="cow/spawn markers" index="0"]
-position = Vector2(-552, -3444)
+[node name="Cow2" parent="cow" index="1" instance=ExtResource("4_0vlnc")]
+position = Vector2(4641, -4600)
 
-[node name="Marker2D2" type="Marker2D" parent="cow/spawn markers" index="1"]
-position = Vector2(2492, -3482)
+[node name="Cow3" parent="cow" index="2" instance=ExtResource("4_0vlnc")]
+position = Vector2(-10868, 2669)
 
-[node name="Marker2D3" type="Marker2D" parent="cow/spawn markers" index="2"]
-position = Vector2(5788, 1382)
+[node name="Cow4" parent="cow" index="3" instance=ExtResource("4_0vlnc")]
+position = Vector2(-12322, -39)
 
-[node name="Marker2D4" type="Marker2D" parent="cow/spawn markers" index="3"]
-position = Vector2(10364, 2182)
+[node name="Cow5" parent="cow" index="4" instance=ExtResource("4_0vlnc")]
+position = Vector2(-6335, -3488)
 
-[node name="Marker2D5" type="Marker2D" parent="cow/spawn markers" index="4"]
-position = Vector2(15164, 5446)
+[node name="Cow6" parent="cow" index="5" instance=ExtResource("4_0vlnc")]
+position = Vector2(849, 5121)
 
-[node name="Marker2D6" type="Marker2D" parent="cow/spawn markers" index="5"]
-position = Vector2(860, 5222)
+[node name="Cow7" parent="cow" index="6" instance=ExtResource("4_0vlnc")]
+position = Vector2(5781, 1387)
 
-[node name="Marker2D7" type="Marker2D" parent="cow/spawn markers" index="6"]
-position = Vector2(-3908, 588)
+[node name="Cow8" parent="cow" index="7" instance=ExtResource("4_0vlnc")]
+position = Vector2(10428, 2213)
 
-[node name="Marker2D8" type="Marker2D" parent="cow/spawn markers" index="7"]
-position = Vector2(-6308, -3482)
+[node name="Cow9" parent="cow" index="8" instance=ExtResource("4_0vlnc")]
+position = Vector2(14904, -2890)
 
-[node name="Marker2D9" type="Marker2D" parent="cow/spawn markers" index="8"]
-position = Vector2(-12356, -51)
-
-[node name="Marker2D10" type="Marker2D" parent="cow/spawn markers" index="9"]
-position = Vector2(-10820, 2637)
-
-[node name="Marker2D11" type="Marker2D" parent="cow/spawn markers" index="10"]
-position = Vector2(-2788, -4787)
-
-[node name="Marker2D12" type="Marker2D" parent="cow/spawn markers" index="11"]
-position = Vector2(9084, -5267)
-
-[node name="Cow" parent="cow" index="1" instance=ExtResource("4_0vlnc")]
+[node name="Cow10" parent="cow" index="9" instance=ExtResource("4_0vlnc")]
 position = Vector2(1733, -495)
 
-[node name="Camera2D" parent="player" index="11"]
-zoom = Vector2(1.6, 1.6)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player" index="12"]
+stream = ExtResource("5_v3s8l")
+autoplay = true
+
+[node name="Camera2D" parent="player" index="14"]
 limit_left = -16900
 limit_top = -5800
 limit_right = 16900
@@ -110,4 +103,7 @@ shape = SubResource("WorldBoundaryShape2D_qsjoj")
 [node name="cow timer" type="Timer" parent="." index="11"]
 wait_time = 30.0
 
+[connection signal="finished" from="player/AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pause" from="pause menu" to="." method="_on_pause_menu_pause"]
+[connection signal="resume" from="pause menu" to="." method="_on_pause_menu_resume"]
 [connection signal="timeout" from="cow timer" to="." method="_on_cow_timer_timeout"]

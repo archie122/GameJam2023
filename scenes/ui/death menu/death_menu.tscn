@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bunhsok8r62ol"]
+[gd_scene load_steps=5 format=3 uid="uid://bunhsok8r62ol"]
 
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="1_tl8gq"]
 [ext_resource type="Script" path="res://scenes/ui/death menu/death_menu.gd" id="1_yhwsp"]
+
+[sub_resource type="Theme" id="Theme_cww7y"]
+default_font = ExtResource("1_tl8gq")
+default_font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_whlv2"]
 font_size = 40
 
 [node name="death menu" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_cww7y")
 script = ExtResource("1_yhwsp")
 
 [node name="ColorRect" type="ColorRect" parent="."]

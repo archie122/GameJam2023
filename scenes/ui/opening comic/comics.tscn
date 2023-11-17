@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfw8ds1ccwah2"]
+
+[ext_resource type="Texture2D" uid="uid://b0f1r67h6uls5" path="res://graphics/world_objects/cutscene-Sheet.png" id="1_bs6t1"]
+[ext_resource type="Script" path="res://scenes/ui/opening comic/comics.gd" id="1_xxria"]
+[ext_resource type="AudioStream" uid="uid://blonbmbhckl4w" path="res://audio/Project_1.wav" id="2_p34in"]
+
+[sub_resource type="Animation" id="Animation_2bspd"]
+resource_name = "cut scene"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5, 6, 7, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_aqesn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04guf"]
+_data = {
+"RESET": SubResource("Animation_aqesn"),
+"cut scene": SubResource("Animation_2bspd")
+}
+
+[node name="comics" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxria")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+texture = ExtResource("1_bs6t1")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_04guf")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_p34in")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

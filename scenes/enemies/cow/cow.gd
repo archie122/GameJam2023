@@ -5,7 +5,7 @@ var speed: int = 350
 var direction: Vector2 = Globals.player_position
 
 var move: bool = false
-
+var dead: bool = false
 func _process(delta):
 	if(move):
 		direction = (position - Globals.player_position ).normalized()
@@ -16,9 +16,12 @@ func _process(delta):
 		move_and_slide()
 #		rotate(deg_to_rad(90))
 	
-	if health <= 0:
+	if !dead and health <= 0:
 		Globals.spawn_leather_and_raw_meat.emit(position)
-		queue_free()
+		hide()
+		set_collision_layer_value(3,false)
+		$respawn.start()
+		dead = true
 
 
 
@@ -33,3 +36,10 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	move = false
+
+
+func _on_respawn_timeout():
+	health = 100
+	show()
+	set_collision_layer_value(3,true)
+	dead = false

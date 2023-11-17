@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgj1nyxenyhp6"]
+[gd_scene load_steps=13 format=3 uid="uid://cgj1nyxenyhp6"]
 
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="1_oxe6b"]
 [ext_resource type="Script" path="res://scenes/ui/main display/main_display.gd" id="1_s23gi"]
 [ext_resource type="Texture2D" uid="uid://bo5fspt6ish51" path="res://graphics/items/wood.png" id="2_t0u7t"]
 [ext_resource type="Texture2D" uid="uid://cky131k15fxdl" path="res://graphics/items/rock.png" id="3_a6kxv"]
@@ -7,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="5_f7s77"]
 [ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="6_k2uht"]
 [ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="7_n5n2k"]
+[ext_resource type="Texture2D" uid="uid://c43kkhlvqa3bc" path="res://graphics/UI bar/back.png" id="8_2i8yk"]
+[ext_resource type="Texture2D" uid="uid://633mavj8l8kp" path="res://graphics/UI bar/boarder.png" id="9_bvbac"]
+[ext_resource type="Texture2D" uid="uid://dd1jhh5qaocu8" path="res://graphics/UI bar/filled bar.png" id="10_yaowg"]
+
+[sub_resource type="Theme" id="Theme_3nd1s"]
+default_font = ExtResource("1_oxe6b")
+default_font_size = 24
 
 [node name="main display" type="Control"]
 layout_mode = 3
@@ -15,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3nd1s")
 script = ExtResource("1_s23gi")
 
 [node name="items" type="MarginContainer" parent="."]
@@ -112,8 +121,9 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="health bar"]
-modulate = Color(1, 0, 0, 1)
+[node name="TextureProgressBar" type="TextureProgressBar" parent="health bar"]
 layout_mode = 2
 value = 100.0
-rounded = true
+texture_under = ExtResource("8_2i8yk")
+texture_over = ExtResource("9_bvbac")
+texture_progress = ExtResource("10_yaowg")

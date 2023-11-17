@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmuoncna7twv"]
+[gd_scene load_steps=7 format=3 uid="uid://bmuoncna7twv"]
 
 [ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="1_5aqex"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/menu_2.gd" id="1_sngvs"]
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="1_v4awv"]
 [ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="2_kb84f"]
+
+[sub_resource type="Theme" id="Theme_ug4mx"]
+default_font = ExtResource("1_v4awv")
+default_font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_lb2bc"]
 font_size = 30
@@ -16,9 +21,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ug4mx")
 script = ExtResource("1_sngvs")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(400, 350)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,6 +112,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1031.0
 offset_top = 400.0
 offset_right = 1049.0

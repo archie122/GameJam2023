@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://6y4o8jqhp03g"]
+[gd_scene load_steps=15 format=3 uid="uid://6y4o8jqhp03g"]
 
 [ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
 [ext_resource type="Texture2D" uid="uid://ukfv7lmn2xx0" path="res://graphics/characters/player-Sheet.png" id="2_r7pac"]
+[ext_resource type="AudioStream" uid="uid://dxg84eqb5t5h2" path="res://audio2.0/Footsteps-in-grass-fast-www.fesliyanstudios.com.mp3" id="3_ate7u"]
+[ext_resource type="AudioStream" uid="uid://cyyp4v518u41t" path="res://audio2.0/Pistol Sound Effects 9mm.wav" id="4_d4ecs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dlxxn"]
 radius = 24.1868
@@ -53,22 +55,6 @@ tracks/0/keys = {
 "values": [0, 2, 0]
 }
 
-[sub_resource type="Animation" id="Animation_1anik"]
-resource_name = "shoot_right"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
-
 [sub_resource type="Animation" id="Animation_45ccn"]
 resource_name = "shoot_left_2"
 length = 0.25
@@ -99,6 +85,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [6, 8, 6]
+}
+
+[sub_resource type="Animation" id="Animation_1anik"]
+resource_name = "shoot_right"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_o8o8g"]
@@ -309,6 +311,15 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_26nwv")
 }
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ate7u")
+volume_db = -20.0
+autoplay = true
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_d4ecs")
+volume_db = -20.0
 
 [connection signal="timeout" from="shot cooldown" to="." method="_on_shot_cooldown_timeout"]
 [connection signal="timeout" from="Iframe" to="." method="_on_iframe_timeout"]

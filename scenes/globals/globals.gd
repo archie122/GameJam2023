@@ -12,10 +12,16 @@ var armour: int = 0
 
 var death: bool = false
 
+var forest:bool = false
+
+var made_bench: bool = false
+var made_furance: bool = false
+var first: bool = true
+
 var player_health: int = 1
 var player_max_health: int = 1
 var spawn: Array = [false,false,false,false,false,false]
-var item_in: Array = [200,70,100,500,5,0]
+var item_in: Array = [0,0,0,0,0,0]
 var item_in_names: Array = ["wood", "stone", "metal", "leather", "raw meat", "cooked meat"]
 
 func display_item_in():

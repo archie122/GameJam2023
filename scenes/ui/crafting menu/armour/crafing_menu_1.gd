@@ -51,8 +51,10 @@ func _on_exit_pressed():
 func _on_equipped_pressed():
 	Globals.armour = 1
 	$"HBoxContainer/VBoxContainer2/equipped steel".text = "Equip"
+	$HBoxContainer/VBoxContainer/equipped.text = "Equipped"
 
 
 func _on_equipped_steel_pressed():
 	Globals.armour = 2
 	$HBoxContainer/VBoxContainer/equipped.text = "Equip"
+	$"HBoxContainer/VBoxContainer2/equipped steel".text = "Equipped"

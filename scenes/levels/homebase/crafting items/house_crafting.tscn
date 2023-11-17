@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8b4gdry5v1yq"]
+[gd_scene load_steps=31 format=3 uid="uid://b8b4gdry5v1yq"]
 
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="1_lmu17"]
 [ext_resource type="Texture2D" uid="uid://5mwylo6jkprf" path="res://graphics/world_objects/furnace-Sheet.png" id="1_lxlew"]
 [ext_resource type="Script" path="res://scenes/levels/homebase/crafting items/house_crafting.gd" id="1_s33oo"]
 [ext_resource type="Texture2D" uid="uid://l44tejf6rpgb" path="res://graphics/world_objects/workbench-Sheet.png" id="2_ms5ds"]
@@ -15,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://xm6ssrp3sj5n" path="res://scenes/ui/map choice/where_to_go.tscn" id="11_3kkkc"]
 [ext_resource type="PackedScene" uid="uid://cm8gd3bk0o6ib" path="res://scenes/ui/crafting menu/armour/crafing_menu_1.tscn" id="12_3ygj3"]
 [ext_resource type="PackedScene" uid="uid://bmuoncna7twv" path="res://scenes/ui/crafting menu/armour/menu_2.tscn" id="15_kl05m"]
+[ext_resource type="AudioStream" uid="uid://dpdpxu8uvfhrs" path="res://audio/Top Gunner.wav" id="16_4r55h"]
+
+[sub_resource type="Theme" id="Theme_xy225"]
+default_font = ExtResource("1_lmu17")
+default_font_size = 24
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43b3o"]
 texture = ExtResource("2_uc4nw")
@@ -471,6 +477,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+theme = SubResource("Theme_xy225")
 script = ExtResource("1_s33oo")
 
 [node name="map" type="Node2D" parent="."]
@@ -607,6 +614,10 @@ text = "craft"
 
 [node name="player" parent="." instance=ExtResource("4_1hbjj")]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("16_4r55h")
+autoplay = true
+
 [node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -644,5 +655,8 @@ visible = false
 [connection signal="pressed" from="furance/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="furance2/furance2/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="crafting bench/crafting bench/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="finished" from="player/AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pause" from="pause menu" to="." method="_on_pause_menu_pause"]
+[connection signal="resume" from="pause menu" to="." method="_on_pause_menu_resume"]
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
 [connection signal="go_to_forest" from="CanvasLayer/where to go" to="." method="_on_where_to_go_go_to_forest"]

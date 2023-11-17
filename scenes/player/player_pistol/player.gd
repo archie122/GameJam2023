@@ -20,7 +20,7 @@ var rng = RandomNumberGenerator.new()
 var anim_string: String = ""
 
 func _ready():
-	
+	health = max_health
 	$enemy.start()
 func _process(_delta):
 	Globals.player_max_health = max_health
@@ -38,14 +38,19 @@ func _process(_delta):
 	move_and_slide()
 	look_at(get_global_mouse_position())
 	
+	if(direction == Vector2(0,0)):
+		$footsteps.stop()
+	elif (!$footsteps.playing):
+		$footsteps.play()
+	
 	#to shoot a bullet
 	playerDirection = (get_global_mouse_position() - position).normalized()
-	if(Input.is_action_just_pressed("shoot") && can_shoot):
+	if(Input.is_action_just_pressed("shoot") && can_shoot and Globals.forest):
 		
 		can_shoot = false
 		var bullet_markers
 		$"shot cooldown".start()
-		
+		$shoot.play(9.33)
 		if(shoot_l):
 			bullet_markers = $"shot spawnsL".get_children()
 			$AnimationPlayer.play("shoot_left"+anim_string)
@@ -77,6 +82,7 @@ func _process(_delta):
 
 
 
+
 func _on_shot_cooldown_timeout():
 	can_shoot = true
 
@@ -101,7 +107,7 @@ func _on_enemy_timeout():
 		return
 
 
-	if(((int)(rng.randf_range(0,100)) % 2) == 0):
+	if(((int)(rng.randf_range(0,100)) % 4) <= 2):
 		var number_spawn: int = 2
 		var selected_zombie_spawn 
 		while number_spawn !=0:

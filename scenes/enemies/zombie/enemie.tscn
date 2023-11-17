@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1kbly42xcy6"]
+[gd_scene load_steps=10 format=3 uid="uid://d1kbly42xcy6"]
 
 [ext_resource type="Script" path="res://scenes/enemies/zombie/enemie.gd" id="1_11q6i"]
 [ext_resource type="Texture2D" uid="uid://cy31hn8vb15ak" path="res://graphics/characters/zombie.png" id="2_kq1a1"]
+[ext_resource type="AudioStream" uid="uid://drxmdljwvbsts" path="res://audio2.0/Zombie-Aggressive-Attack-A1-www.fesliyanstudios.com.mp3" id="3_jsn3n"]
+[ext_resource type="AudioStream" uid="uid://c8dfqg5f7yrba" path="res://audio2.0/Zombie-Aggressive-Attack-A2-www.fesliyanstudios.com.mp3" id="4_jxjx4"]
+[ext_resource type="AudioStream" uid="uid://ve7pastb0khg" path="res://audio2.0/Zombie-Aggressive-Attack-A3-www.fesliyanstudios.com.mp3" id="5_fqnf5"]
+[ext_resource type="AudioStream" uid="uid://c6ehpamm6cb8k" path="res://audio2.0/Zombie-Aggressive-Attack-A4-www.fesliyanstudios.com.mp3" id="6_tvffi"]
+[ext_resource type="AudioStream" uid="uid://ijqg7denl16a" path="res://audio2.0/Zombie-Aggressive-Attack-A5-www.fesliyanstudios.com.mp3" id="7_r5ila"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbg2d"]
 radius = 3.68216
@@ -30,5 +35,40 @@ texture = ExtResource("2_kq1a1")
 position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_87clh")
 
+[node name="Node" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("3_jsn3n")
+volume_db = -15.0
+max_distance = 900000.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("4_jxjx4")
+volume_db = -15.0
+max_distance = 90000.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("5_fqnf5")
+volume_db = -15.0
+max_distance = 900000.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("6_tvffi")
+volume_db = -15.0
+max_distance = 9e+06
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("7_r5ila")
+volume_db = -15.0
+max_distance = 900000.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="despawn" type="Timer" parent="."]
+
 [connection signal="spawn_steel" from="." to="." method="_on_spawn_steel"]
 [connection signal="body_entered" from="hit_player" to="." method="_on_hit_player_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="despawn" to="." method="_on_despawn_timeout"]

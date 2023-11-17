@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm8gd3bk0o6ib"]
+[gd_scene load_steps=7 format=3 uid="uid://cm8gd3bk0o6ib"]
 
 [ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="1_3levv"]
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="1_nkef2"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/crafing_menu_1.gd" id="1_pph14"]
 [ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="2_uwsch"]
+
+[sub_resource type="Theme" id="Theme_6jxx7"]
+default_font = ExtResource("1_nkef2")
+default_font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_5v827"]
 font_size = 30
@@ -17,20 +22,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_6jxx7")
 script = ExtResource("1_pph14")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(500, 300)
+custom_minimum_size = Vector2(550, 400)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = -268.0
+offset_top = -227.0
+offset_right = 282.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.360784)
@@ -38,10 +44,10 @@ color = Color(0, 0, 0, 0.360784)
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 2
-offset_left = 816.0
-offset_top = 375.0
-offset_right = 1081.0
-offset_bottom = 420.0
+offset_left = 827.0
+offset_top = 342.0
+offset_right = 1092.0
+offset_bottom = 387.0
 text = "insignificant items"
 label_settings = SubResource("LabelSettings_5v827")
 
@@ -62,7 +68,7 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -99,7 +105,7 @@ layout_mode = 2
 text = "X 50"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]

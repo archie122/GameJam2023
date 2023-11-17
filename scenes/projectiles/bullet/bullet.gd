@@ -1,5 +1,5 @@
 extends Area2D
-var speed: int = 600
+var speed: int = 1000
 var damage: int = 50
 var direction:Vector2 = Vector2.UP
 

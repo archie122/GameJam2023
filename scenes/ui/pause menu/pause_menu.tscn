@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dme6obbt31xox"]
+[gd_scene load_steps=6 format=3 uid="uid://dme6obbt31xox"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause menu/pause_menu.gd" id="1_y4lke"]
+[ext_resource type="FontFile" uid="uid://5flhwhmoadxy" path="res://graphics/text/LexieReadableRegular-PdeP.ttf" id="2_l56u2"]
+[ext_resource type="AudioStream" uid="uid://dng5xsnetdh1d" path="res://audio/Menu2.wav" id="3_cqwfu"]
+
+[sub_resource type="Theme" id="Theme_i7i8f"]
+default_font = ExtResource("2_l56u2")
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_wyltd"]
+default_font = ExtResource("2_l56u2")
+default_font_size = 24
 
 [node name="pause menu" type="CanvasLayer"]
 process_mode = 3
@@ -11,6 +21,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_i7i8f")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -62,6 +73,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_wyltd")
 
 [node name="ColorRect" type="ColorRect" parent="Control2"]
 custom_minimum_size = Vector2(350, 100)
@@ -106,7 +118,12 @@ text = "Yes quit"
 layout_mode = 2
 text = "No stay"
 
+[node name="paused" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cqwfu")
+max_distance = 1e+07
+
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Control2/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Control2/MarginContainer/VBoxContainer/HBoxContainer/stay" to="." method="_on_stay_pressed"]
+[connection signal="finished" from="paused" to="." method="_on_paused_finished"]

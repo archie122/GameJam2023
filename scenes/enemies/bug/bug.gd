@@ -5,3 +5,9 @@ func _ready():
 	speed = 500
 	damage = 25
 	$AnimationPlayer.play("move")
+
+
+
+
+func _on_despawn_timeout():
+	queue_free()
