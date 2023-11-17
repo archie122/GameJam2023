@@ -105,6 +105,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1031.0
 offset_top = 400.0
 offset_right = 1049.0
