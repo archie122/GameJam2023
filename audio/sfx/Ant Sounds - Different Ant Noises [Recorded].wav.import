@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://beuu845iao7ay"
+=======
+uid="uid://dh0sbxx6evqpg"
+>>>>>>> 6b44e48a6c6248a70d20daae735c4e45363b14a0
 path="res://.godot/imported/Ant Sounds - Different Ant Noises [Recorded].wav-903d51f79e039fbe1c080485f5c2b3de.sample"
 
 [deps]

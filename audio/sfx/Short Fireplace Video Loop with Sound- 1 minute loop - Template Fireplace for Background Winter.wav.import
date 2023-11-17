@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://drmlhf3xjdnbf"
+=======
+uid="uid://crbithv6wfrw3"
+>>>>>>> 6b44e48a6c6248a70d20daae735c4e45363b14a0
 path="res://.godot/imported/Short Fireplace Video Loop with Sound- 1 minute loop - Template Fireplace for Background Winter.wav-f72fe08c60c287d531e34e6fbbe1d6e9.sample"
 
 [deps]

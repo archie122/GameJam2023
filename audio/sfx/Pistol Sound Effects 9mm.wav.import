@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://b0vi7utt8t7u8"
+=======
+uid="uid://eruvppwwnrkg"
+>>>>>>> 6b44e48a6c6248a70d20daae735c4e45363b14a0
 path="res://.godot/imported/Pistol Sound Effects 9mm.wav-5cd8be189e2558df68b8011ab18307d8.sample"
 
 [deps]
