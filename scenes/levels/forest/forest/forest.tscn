@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://q4rg7qrqtd2v"]
+
+[ext_resource type="PackedScene" uid="uid://bokrdte2bswx3" path="res://scenes/levels/parent/parent_level.tscn" id="1_ra63k"]
+[ext_resource type="Script" path="res://scenes/levels/forest/forest/forest.gd" id="2_uy0t1"]
+[ext_resource type="PackedScene" uid="uid://damn4dvdf1fc3" path="res://scenes/levels/forest/forest1/forest.tscn" id="3_l5m1h"]
+
+[node name="forest" instance=ExtResource("1_ra63k")]
+script = ExtResource("2_uy0t1")
+
+[node name="ground" type="Node2D" parent="." index="0"]
+
+[node name="forest" parent="ground" index="0" instance=ExtResource("3_l5m1h")]
+
+[node name="Camera2D" parent="player" index="11"]
+zoom = Vector2(1.6, 1.6)

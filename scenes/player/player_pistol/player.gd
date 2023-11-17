@@ -4,9 +4,11 @@ var health: int = 200
 var max_health:int = 200
 var speed: int = 400
 var can_shoot: bool = true
+
 var took_damage: bool = false
 @export var can_spawn: bool = true
 
+var shoot_l: bool = false
 
 signal shot(pos, direction)
 signal bug(pos, direction)
@@ -32,9 +34,17 @@ func _process(_delta):
 	#to shoot a laser
 	playerDirection = (get_global_mouse_position() - position).normalized()
 	if(Input.is_action_just_pressed("shoot") && can_shoot):
+		
 		can_shoot = false
+		var bullet_markers
 		$"shot cooldown".start()
-		var bullet_markers = $"shot spawns".get_children()
+		if(shoot_l):
+			bullet_markers = $"shot spawnsL".get_children()
+			$AnimationPlayer.play("shoot_left")
+		else:
+			bullet_markers = $"shot spawnsR".get_children()
+			$AnimationPlayer.play("shoot_right")
+		shoot_l = !shoot_l
 		var selected_bullet = bullet_markers[randi() % bullet_markers.size()]
 		shot.emit(selected_bullet.global_position,playerDirection)
 	
@@ -48,7 +58,10 @@ func _on_shot_cooldown_timeout():
 func hit(damage):
 	
 	if(!took_damage):
+#		
 		$Iframe.start()
+		
+		$AnimationPlayer2.play("Iframe")
 		took_damage = true
 		health -= damage
 

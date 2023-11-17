@@ -1,23 +1,21 @@
+<<<<<<< HEAD
 [gd_scene load_steps=10 format=3 uid="uid://bokrdte2bswx3"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://bokrdte2bswx3"]
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 
 [ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="1_bhedc"]
 [ext_resource type="Script" path="res://scenes/levels/parent/parent_level.gd" id="1_q7se2"]
-[ext_resource type="Texture2D" uid="uid://dxcgxovyg4jrd" path="res://stones.png" id="2_52vv2"]
-[ext_resource type="PackedScene" uid="uid://d1kbly42xcy6" path="res://scenes/enemies/zombie/enemie.tscn" id="3_0foou"]
-[ext_resource type="PackedScene" uid="uid://dancix0bt6gna" path="res://scenes/items/wood/wood.tscn" id="5_n38ey"]
-[ext_resource type="PackedScene" uid="uid://bs7kqdjoxpxm" path="res://scenes/items/stone/stone.tscn" id="6_t2ll7"]
-[ext_resource type="PackedScene" uid="uid://x2ls441w0ahd" path="res://scenes/enemies/cow/cow.tscn" id="7_brf8m"]
 [ext_resource type="PackedScene" uid="uid://cgj1nyxenyhp6" path="res://scenes/ui/main display/main_display.tscn" id="8_qt04x"]
+<<<<<<< HEAD
 [ext_resource type="Theme" uid="uid://dnows62uxiwy" path="res://graphics/prope_theme.tres" id="9_kcw60"]
+=======
+[ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="9_dqdwu"]
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 
 [node name="parent_level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_q7se2")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture_repeat = 2
-texture = ExtResource("2_52vv2")
-region_enabled = true
-region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 
 [node name="projectiles" type="Node2D" parent="."]
 
@@ -25,18 +23,10 @@ region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
 
 [node name="items" type="Node2D" parent="."]
 
-[node name="wood" parent="items" instance=ExtResource("5_n38ey")]
-position = Vector2(414, -205)
-
-[node name="stone" parent="items" instance=ExtResource("6_t2ll7")]
-position = Vector2(128, -145)
-
-[node name="enemie" parent="." instance=ExtResource("3_0foou")]
-position = Vector2(978, 190)
-
 [node name="player" parent="." instance=ExtResource("1_bhedc")]
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -53,9 +43,6 @@ gravity = Vector2(0, 0)
 scale_amount_min = 3.5
 scale_amount_max = 5.5
 color = Color(0.737255, 0.372549, 0, 1)
-
-[node name="Cow" parent="." instance=ExtResource("7_brf8m")]
-position = Vector2(187, -374)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,4 +62,11 @@ offset_right = -960.0
 offset_bottom = -540.0
 theme = ExtResource("9_kcw60")
 
+<<<<<<< HEAD
+=======
+[node name="pause menu" parent="." instance=ExtResource("9_dqdwu")]
+process_mode = 2
+
+[connection signal="bug" from="player" to="." method="_on_player_bug"]
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 [connection signal="shot" from="player" to="." method="_on_player_shot"]

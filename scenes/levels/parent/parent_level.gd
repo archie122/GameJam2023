@@ -1,4 +1,5 @@
 extends Node2D
+class_name  parant_level
 
 var bullet_scene: PackedScene = preload("res://scenes/projectiles/bullet/bullet.tscn")
 var spawn_zombie: PackedScene = preload("res://scenes/enemies/zombie/enemie.tscn")
@@ -9,13 +10,32 @@ var spawn_stone: PackedScene = preload("res://scenes/items/stone/stone.tscn")
 var spawn_steel: PackedScene = preload("res://scenes/items/steel/steel.tscn")
 var spawn_leather: PackedScene = preload("res://scenes/items/leather/leather.tscn")
 var spawn_raw_meat: PackedScene = preload("res://scenes/items/food/raw_meat/raw_meat.tscn")
+
+@onready var pause_menu = $"pause menu"
+var paused:bool = false
+func pauseMenu():
+	if(paused):
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+	
+	paused = !paused
+
 func _ready():
 	Globals.spawn_wood.connect(_on_spawn_wood)
 	Globals.spawn_stone.connect(_on_spawn_stone)
 	Globals.spawn_steel.connect(_on_spawn_steel)
 	Globals.spawn_leather_and_raw_meat.connect(_on_spawn_leather_and_raw_meat)
 	
-
+func _process(delta):
+	if(Input.is_action_just_pressed("pause")):
+		
+		pauseMenu()
+	
+	
+	
 func _on_player_shot(pos, direction):
 	var bullet = bullet_scene.instantiate() as Area2D
 	
