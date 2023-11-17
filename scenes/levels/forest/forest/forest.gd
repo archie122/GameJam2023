@@ -4,6 +4,7 @@ var spawn_cow:PackedScene = preload("res://scenes/enemies/cow/cow.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 	Globals.spawn_wood.connect(_on_spawn_wood)
 	Globals.spawn_stone.connect(_on_spawn_stone)
 	Globals.spawn_steel.connect(_on_spawn_steel)
