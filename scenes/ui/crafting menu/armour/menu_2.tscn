@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmuoncna7twv"]
 
-[ext_resource type="Texture2D" uid="uid://nol2o8ksbr5t" path="res://graphics/items/cooked meat.png" id="1_5aqex"]
+[ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="1_5aqex"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/menu_2.gd" id="1_sngvs"]
-[ext_resource type="Texture2D" uid="uid://7brrm56ybb4k" path="res://graphics/items/raw meat.png" id="2_kb84f"]
+[ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="2_kb84f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lb2bc"]
 font_size = 30
@@ -105,7 +105,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="exit" type="Button" parent="."]
-layout_mode = 0
 offset_left = 1031.0
 offset_top = 400.0
 offset_right = 1049.0

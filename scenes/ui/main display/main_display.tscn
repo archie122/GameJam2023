@@ -1,22 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgj1nyxenyhp6"]
 
 [ext_resource type="Script" path="res://scenes/ui/main display/main_display.gd" id="1_s23gi"]
-[ext_resource type="Texture2D" uid="uid://dxwef2kurymis" path="res://graphics/items/wood.png" id="2_t0u7t"]
-[ext_resource type="Texture2D" uid="uid://basume64hqv86" path="res://graphics/items/rock.png" id="3_a6kxv"]
-[ext_resource type="Texture2D" uid="uid://bpb7uluspvb2c" path="res://graphics/items/steel.png" id="4_nex5b"]
-[ext_resource type="Texture2D" uid="uid://ce0lrjxtrllsa" path="res://graphics/items/leather.png" id="5_f7s77"]
-[ext_resource type="Texture2D" uid="uid://7brrm56ybb4k" path="res://graphics/items/raw meat.png" id="6_k2uht"]
-[ext_resource type="Texture2D" uid="uid://nol2o8ksbr5t" path="res://graphics/items/cooked meat.png" id="7_n5n2k"]
+[ext_resource type="Texture2D" uid="uid://bo5fspt6ish51" path="res://graphics/items/wood.png" id="2_t0u7t"]
+[ext_resource type="Texture2D" uid="uid://cky131k15fxdl" path="res://graphics/items/rock.png" id="3_a6kxv"]
+[ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="4_nex5b"]
+[ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="5_f7s77"]
+[ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="6_k2uht"]
+[ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="7_n5n2k"]
 
 [node name="main display" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -259.0
-offset_top = -398.0
-offset_right = -259.0
-offset_bottom = -398.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s23gi")

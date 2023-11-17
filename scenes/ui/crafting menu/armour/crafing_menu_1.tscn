@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm8gd3bk0o6ib"]
 
-[ext_resource type="Texture2D" uid="uid://ce0lrjxtrllsa" path="res://graphics/items/leather.png" id="1_3levv"]
+[ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="1_3levv"]
 [ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/crafing_menu_1.gd" id="1_pph14"]
-[ext_resource type="Texture2D" uid="uid://bpb7uluspvb2c" path="res://graphics/items/steel.png" id="2_uwsch"]
+[ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="2_uwsch"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5v827"]
 font_size = 30

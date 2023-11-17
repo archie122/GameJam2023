@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bokrdte2bswx3"]
+
+[ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="1_bhedc"]
+[ext_resource type="Script" path="res://scenes/levels/parent/parent_level.gd" id="1_q7se2"]
+[ext_resource type="Texture2D" uid="uid://dxcgxovyg4jrd" path="res://stones.png" id="2_52vv2"]
+[ext_resource type="PackedScene" uid="uid://d1kbly42xcy6" path="res://scenes/enemies/zombie/enemie.tscn" id="3_0foou"]
+[ext_resource type="PackedScene" uid="uid://dancix0bt6gna" path="res://scenes/items/wood/wood.tscn" id="5_n38ey"]
+
+[node name="parent_level" type="Node2D"]
+script = ExtResource("1_q7se2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_52vv2")
+region_enabled = true
+region_rect = Rect2(-386.531, -183.765, 2749.39, 1632.93)
+
+[node name="projectiles" type="Node2D" parent="."]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemie" parent="." instance=ExtResource("3_0foou")]
+position = Vector2(978, 190)
+
+[node name="player" parent="." instance=ExtResource("1_bhedc")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position_smoothing_enabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(192, 14)
+emitting = false
+amount = 24
+lifetime = 2.0
+one_shot = true
+lifetime_randomness = 0.06
+emission_shape = 1
+emission_sphere_radius = 25.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+scale_amount_min = 3.5
+scale_amount_max = 5.5
+color = Color(0.737255, 0.372549, 0, 1)
+
+[node name="wood" parent="." instance=ExtResource("5_n38ey")]
+position = Vector2(414, -205)
+
+[connection signal="bug" from="player" to="." method="_on_player_bug"]
+[connection signal="shot" from="player" to="." method="_on_player_shot"]
+[connection signal="zombie" from="player" to="." method="_on_player_zombie"]
