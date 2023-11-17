@@ -1,18 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgj1nyxenyhp6"]
+[gd_scene load_steps=11 format=3 uid="uid://cgj1nyxenyhp6"]
 
 [ext_resource type="Script" path="res://scenes/ui/main display/main_display.gd" id="1_s23gi"]
 [ext_resource type="Texture2D" uid="uid://bo5fspt6ish51" path="res://graphics/items/wood.png" id="2_t0u7t"]
 [ext_resource type="Texture2D" uid="uid://cky131k15fxdl" path="res://graphics/items/rock.png" id="3_a6kxv"]
+[ext_resource type="FontFile" uid="uid://ysg5p0qbndf5" path="res://graphics/fonts/ARCADECLASSIC.TTF" id="3_qup12"]
 [ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="4_nex5b"]
 [ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="5_f7s77"]
 [ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="6_k2uht"]
 [ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="7_n5n2k"]
+[ext_resource type="Theme" uid="uid://dnows62uxiwy" path="res://graphics/prope_theme.tres" id="9_1l0nw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbtdn"]
 
 [node name="main display" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = -12.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s23gi")
@@ -40,6 +48,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/wood"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 wood"
 
 [node name="stone" type="HBoxContainer" parent="items/VBoxContainer"]
@@ -52,6 +62,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/stone"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 stone"
 
 [node name="steel" type="HBoxContainer" parent="items/VBoxContainer"]
@@ -64,6 +76,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/steel"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 steel"
 
 [node name="leather" type="HBoxContainer" parent="items/VBoxContainer"]
@@ -76,6 +90,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/leather"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 leather"
 
 [node name="raw meat" type="HBoxContainer" parent="items/VBoxContainer"]
@@ -88,6 +104,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/raw meat"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 raw Meat"
 
 [node name="cooked meat" type="HBoxContainer" parent="items/VBoxContainer"]
@@ -100,6 +118,8 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="items/VBoxContainer/cooked meat"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 20
 text = "0 cooked meat"
 
 [node name="health bar" type="MarginContainer" parent="."]
@@ -115,5 +135,12 @@ grow_horizontal = 2
 [node name="ProgressBar" type="ProgressBar" parent="health bar"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
+theme = ExtResource("9_1l0nw")
+theme_override_fonts/font = ExtResource("3_qup12")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/background = SubResource("StyleBoxEmpty_jbtdn")
 value = 100.0
 rounded = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="health bar"]
+layout_mode = 2

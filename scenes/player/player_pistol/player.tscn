@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6y4o8jqhp03g"]
+[gd_scene load_steps=9 format=3 uid="uid://6y4o8jqhp03g"]
 
 [ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
 [ext_resource type="Texture2D" uid="uid://ukfv7lmn2xx0" path="res://graphics/characters/player-Sheet.png" id="2_r7pac"]
@@ -69,80 +69,12 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_45ccn"]
-resource_name = "shoot_left_2"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [3, 5, 3]
-}
-
-[sub_resource type="Animation" id="Animation_xnuf5"]
-resource_name = "shoot_left_3"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [6, 8, 6]
-}
-
-[sub_resource type="Animation" id="Animation_o8o8g"]
-resource_name = "shoot_right_2"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 3]
-}
-
-[sub_resource type="Animation" id="Animation_eq8rt"]
-resource_name = "shoot_right_3"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [7, 6]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26nwv"]
 _data = {
 "Iframe": SubResource("Animation_7td1m"),
 "RESET": SubResource("Animation_yal84"),
 "shoot_left": SubResource("Animation_hi802"),
-"shoot_left_2": SubResource("Animation_45ccn"),
-"shoot_left_3": SubResource("Animation_xnuf5"),
-"shoot_right": SubResource("Animation_1anik"),
-"shoot_right_2": SubResource("Animation_o8o8g"),
-"shoot_right_3": SubResource("Animation_eq8rt")
+"shoot_right": SubResource("Animation_1anik")
 }
 
 [node name="player" type="CharacterBody2D"]
