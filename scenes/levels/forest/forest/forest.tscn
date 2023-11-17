@@ -10,3 +10,6 @@ script = ExtResource("2_uy0t1")
 [node name="ground" type="Node2D" parent="." index="0"]
 
 [node name="forest" parent="ground" index="0" instance=ExtResource("3_l5m1h")]
+
+[node name="Camera2D" parent="player" index="11"]
+zoom = Vector2(1.6, 1.6)
