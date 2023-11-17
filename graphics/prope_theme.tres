@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://dnows62uxiwy"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dnows62uxiwy"]
+
+[ext_resource type="FontFile" uid="uid://dgxdxp7ynoygt" path="res://graphics/fonts/ANUDI___.ttf" id="1_x6ckb"]
 
 [resource]
+Label/fonts/font = ExtResource("1_x6ckb")
