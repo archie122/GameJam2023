@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm8gd3bk0o6ib"]
+
+[ext_resource type="Texture2D" uid="uid://d0jgqll5lhdlr" path="res://graphics/items/leather.png" id="1_3levv"]
+[ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/crafing_menu_1.gd" id="1_pph14"]
+[ext_resource type="Texture2D" uid="uid://bslmasrgyux6q" path="res://graphics/items/steel.png" id="2_uwsch"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5v827"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
+[node name="crafing menu 1" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pph14")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 816.0
+offset_top = 375.0
+offset_right = 1081.0
+offset_bottom = 420.0
+text = "insignificant items"
+label_settings = SubResource("LabelSettings_5v827")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -95.0
+offset_right = 150.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "leather armour"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_3levv")
+expand_mode = 5
+
+[node name="equipped" type="Button" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "equipped"
+
+[node name="leather" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "craft "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/leather"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 119.0
+offset_bottom = 35.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/leather/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_3levv")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/leather/HBoxContainer"]
+layout_mode = 2
+text = "X 50"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "steel armour"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_uwsch")
+expand_mode = 5
+
+[node name="equipped steel" type="Button" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "equipped"
+
+[node name="steel" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "craft "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2/steel"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 119.0
+offset_bottom = 35.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_3levv")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
+layout_mode = 2
+text = "X 50"
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_uwsch")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2/steel/HBoxContainer"]
+layout_mode = 2
+text = "X 75
+"
+
+[node name="can\'t make" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 395.0
+offset_right = 1202.0
+offset_bottom = 426.0
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/equipped" to="." method="_on_equipped_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/leather" to="." method="_on_leather_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/equipped steel" to="." method="_on_equipped_steel_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/steel" to="." method="_on_steel_pressed"]
+[connection signal="timeout" from="can't make" to="." method="_on_cant_make_timeout"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

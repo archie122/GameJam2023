@@ -2,9 +2,12 @@ extends Control
 
 @onready var pause_menu = $"pause menu"
 var paused:bool = false
+var first: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if(first):
+		$"CanvasLayer/thing to say".explore()
+		first = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,23 +29,29 @@ func pauseMenu():
 func _on_button_1_pressed():
 	if(Globals.item_in[0] >= 200):
 		$"crafting bench".show()
+		$"crafting bench".set_collision_layer_value(4,true) 
+		Globals.item_in[0] -= 200
+		$bench.hide()
 	else:
-		print("you do not have the required amount")
+		$"CanvasLayer/thing to say".no_amount()
 
 
 func _on_button_2_pressed():
 	if(Globals.item_in[1] >= 70):
 		$furance2.show()
+		$furance2.set_collision_layer_value(4,true) 
+		Globals.item_in[1] -= 70
+		$furance.hide()
 	else:
-		print("you do not have the required amount")
+		$"CanvasLayer/thing to say".no_amount()
 
 #open the furance crafting options
 func _on_button_3_pressed():
-	TransisionLayer.change_scean("res://scenes/levels/parent/parent_level.tscn")
+	$"CanvasLayer/menu 2".show()
 
 #open the armour crafting menu
 func _on_button_4_pressed():
-	TransisionLayer.change_scean("res://scenes/levels/forest/forest1/forest.tscn")
+	$"CanvasLayer/crafing menu 1".show()
 
 
 func _on_area_2d_body_entered(body):
@@ -54,4 +63,9 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_leave_body_entered(body):
+	$"CanvasLayer/where to go".show()
+
+
+func _on_where_to_go_go_to_forest():
 	TransisionLayer.change_scean("res://scenes/levels/forest/forest/forest.tscn")
+	$"CanvasLayer/where to go".hide()

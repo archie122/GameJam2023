@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cooyls15nawfd"]
+
+[ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="1_j2bjw"]
+[ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="2_i7jpe"]
+
+[sub_resource type="Animation" id="Animation_vfe5b"]
+resource_name = "roof gone"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("map/TileMap:layer_3/modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1if4"]
+_data = {
+"roof gone": SubResource("Animation_vfe5b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsnjo"]
+size = Vector2(194, 194)
+
+[node name="test1 buttons" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "test"
+
+[node name="player" parent="." instance=ExtResource("1_j2bjw")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e1if4")
+}
+
+[node name="pause menu" parent="." instance=ExtResource("2_i7jpe")]
+
+[node name="leave" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave"]
+position = Vector2(-1, -1438)
+shape = SubResource("RectangleShape2D_bsnjo")

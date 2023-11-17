@@ -20,6 +20,7 @@ func pauseMenu():
 	else:
 		pause_menu.show()
 		Engine.time_scale = 0
+		
 	
 	paused = !paused
 
@@ -34,7 +35,7 @@ func _process(delta):
 		
 		pauseMenu()
 	
-	
+	$CanvasLayer/timer.text = var_to_str((round($return.time_left)))
 	
 func _on_player_shot(pos, direction):
 	var bullet = bullet_scene.instantiate() as Area2D
@@ -78,3 +79,22 @@ func _on_spawn_leather_and_raw_meat(pos):
 func spawn(pos,item):
 	item.position = pos
 	$items.add_child(item)
+
+
+func _on_pause_menu_return_home():
+	$return.start()
+	$CanvasLayer/timer.show()
+	pauseMenu()
+
+
+
+
+
+func _on_return_timeout():
+	
+	TransisionLayer.change_scean("res://scenes/levels/homebase/crafting items/house_crafting.tscn")
+
+
+func _on_player_death():
+	$"CanvasLayer/death menu".start_timer()
+	TransisionLayer.change_scean("res://scenes/levels/homebase/crafting items/house_crafting.tscn")
