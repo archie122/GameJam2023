@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drmlhf3xjdnbf"
+path="res://.godot/imported/Short Fireplace Video Loop with Sound- 1 minute loop - Template Fireplace for Background Winter.wav-f72fe08c60c287d531e34e6fbbe1d6e9.sample"
+
+[deps]
+
+source_file="res://audio/sfx/Short Fireplace Video Loop with Sound- 1 minute loop - Template Fireplace for Background Winter.wav"
+dest_files=["res://.godot/imported/Short Fireplace Video Loop with Sound- 1 minute loop - Template Fireplace for Background Winter.wav-f72fe08c60c287d531e34e6fbbe1d6e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8b4gdry5v1yq"]
+[gd_scene load_steps=20 format=3 uid="uid://b8b4gdry5v1yq"]
 
 [ext_resource type="Texture2D" uid="uid://5mwylo6jkprf" path="res://graphics/world_objects/furnace-Sheet.png" id="1_lxlew"]
 [ext_resource type="Script" path="res://scenes/levels/homebase/crafting items/house_crafting.gd" id="1_s33oo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6y4o8jqhp03g" path="res://scenes/player/player_pistol/player.tscn" id="4_1hbjj"]
 [ext_resource type="Texture2D" uid="uid://dmv1dlq56qgiy" path="res://graphics/world_objects/Flowers-Sheet.png" id="4_3a21d"]
 [ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="8_ym8er"]
+[ext_resource type="PackedScene" uid="uid://cgj1nyxenyhp6" path="res://scenes/ui/main display/main_display.tscn" id="9_gx3xd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43b3o"]
 texture = ExtResource("2_uc4nw")
@@ -436,6 +437,10 @@ process_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leave"]
 position = Vector2(-1, -1438)
 shape = SubResource("RectangleShape2D_hlpax")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="main display" parent="CanvasLayer" instance=ExtResource("9_gx3xd")]
 
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="map/Area2D" to="." method="_on_area_2d_body_exited"]
