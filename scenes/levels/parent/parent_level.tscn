@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=10 format=3 uid="uid://bokrdte2bswx3"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://bokrdte2bswx3"]
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 =======
 [gd_scene load_steps=5 format=3 uid="uid://bokrdte2bswx3"]
 >>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
@@ -8,7 +12,11 @@
 [ext_resource type="Script" path="res://scenes/levels/parent/parent_level.gd" id="1_q7se2"]
 [ext_resource type="PackedScene" uid="uid://cgj1nyxenyhp6" path="res://scenes/ui/main display/main_display.tscn" id="8_qt04x"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Theme" uid="uid://dnows62uxiwy" path="res://graphics/prope_theme.tres" id="9_kcw60"]
+=======
+[ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="9_dqdwu"]
+>>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
 =======
 [ext_resource type="PackedScene" uid="uid://dme6obbt31xox" path="res://scenes/ui/pause menu/pause_menu.tscn" id="9_dqdwu"]
 >>>>>>> 35ebe8456cb10d00aa457482c461a2423a937fcd
@@ -64,6 +72,9 @@ theme = ExtResource("9_kcw60")
 
 <<<<<<< HEAD
 =======
+[node name="pause menu" parent="." instance=ExtResource("9_dqdwu")]
+process_mode = 2
+
 [node name="pause menu" parent="." instance=ExtResource("9_dqdwu")]
 process_mode = 2
 
