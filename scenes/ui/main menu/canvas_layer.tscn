@@ -1,28 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxcth2et56u6h"]
+[gd_scene load_steps=7 format=3 uid="uid://cxcth2et56u6h"]
 
 [ext_resource type="Script" path="res://scenes/ui/main menu/canvas_layer.gd" id="1_7idc5"]
+[ext_resource type="Texture2D" uid="uid://c3vfltc8nex5m" path="res://graphics/world_objects/Background.png" id="2_48wa0"]
+[ext_resource type="Script" path="res://scenes/ui/main menu/MainMenu.gd" id="3_rdj7b"]
+[ext_resource type="Theme" uid="uid://dnows62uxiwy" path="res://graphics/prope_theme.tres" id="4_r18vg"]
+[ext_resource type="FontFile" uid="uid://ysg5p0qbndf5" path="res://graphics/fonts/ARCADECLASSIC.TTF" id="5_d1hxe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ps6r"]
+bg_color = Color(0.00784314, 0.270588, 0.156863, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_7idc5")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1917.0
+offset_bottom = 1079.0
+color = Color(1, 0.294118, 1, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(958.25, 539.625)
+scale = Vector2(2.06735, 1.36097)
+texture = ExtResource("2_48wa0")
+
+[node name="MainMenu" type="Node" parent="."]
+script = ExtResource("3_rdj7b")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
 layout_mode = 2
-color = Color(0.466667, 0.00784314, 0.584314, 1)
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_r18vg")
+theme_override_font_sizes/font_size = 125
+text = "Welcome   To    Byte     Bandits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Main Menu"
+size_flags_vertical = 2
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_r18vg")
+theme_override_fonts/font = ExtResource("5_d1hxe")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ps6r")
+text = "Play"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d1hxe")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ps6r")
+text = "Exit"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Play" to="MainMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Exit" to="MainMenu" method="_on_exit_pressed"]

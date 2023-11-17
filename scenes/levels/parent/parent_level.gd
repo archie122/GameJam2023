@@ -13,7 +13,12 @@ var spawn_raw_meat: PackedScene = preload("res://scenes/items/food/raw_meat/raw_
 
 @onready var pause_menu = $"pause menu"
 var paused:bool = false
-func pauseMenu():
+
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pass
+	
+func pauseMenu(): 
 	if(paused):
 		pause_menu.hide()
 		Engine.time_scale = 1
@@ -28,11 +33,7 @@ func _ready():
 	Globals.spawn_stone.connect(_on_spawn_stone)
 	Globals.spawn_steel.connect(_on_spawn_steel)
 	Globals.spawn_leather_and_raw_meat.connect(_on_spawn_leather_and_raw_meat)
-	
-func _process(delta):
-	if(Input.is_action_just_pressed("pause")):
 		
-		pauseMenu()
 	
 	
 	
