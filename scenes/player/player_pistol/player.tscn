@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://6y4o8jqhp03g"]
 
 [ext_resource type="Script" path="res://scenes/player/player_pistol/player.gd" id="1_q186s"]
-[ext_resource type="Texture2D" uid="uid://ukfv7lmn2xx0" path="res://graphics/characters/player-Sheet.png" id="2_r7pac"]
+[ext_resource type="Texture2D" uid="uid://upisxkwwa26h" path="res://graphics/characters/player-Sheet.png" id="2_r7pac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dlxxn"]
 radius = 24.1868
@@ -53,22 +53,6 @@ tracks/0/keys = {
 "values": [0, 2, 0]
 }
 
-[sub_resource type="Animation" id="Animation_1anik"]
-resource_name = "shoot_right"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
-
 [sub_resource type="Animation" id="Animation_45ccn"]
 resource_name = "shoot_left_2"
 length = 0.25
@@ -99,6 +83,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [6, 8, 6]
+}
+
+[sub_resource type="Animation" id="Animation_1anik"]
+resource_name = "shoot_right"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_o8o8g"]
