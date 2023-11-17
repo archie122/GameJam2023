@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://xm6ssrp3sj5n"]
+
+[ext_resource type="Script" path="res://where to go.gd" id="1_p8qio"]
+[ext_resource type="LabelSettings" uid="uid://bt5m07kol6vdn" path="res://labels/new_label_settings.tres" id="2_0a31d"]
+[ext_resource type="LabelSettings" uid="uid://k5ln4tm8cmd" path="res://labels/hidden text.tres" id="3_k5hks"]
+
+[node name="where to go" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8qio")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -41.0
+offset_right = 194.5
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.521569)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "The Forest"
+label_settings = ExtResource("2_0a31d")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "space"
+label_settings = ExtResource("3_k5hks")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "???"
+label_settings = ExtResource("2_0a31d")
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "spaceas "
+label_settings = ExtResource("3_k5hks")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "???"
+label_settings = ExtResource("2_0a31d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="forest" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Go To"
+flat = true
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "spacesssss"
+label_settings = ExtResource("3_k5hks")
+horizontal_alignment = 1
+
+[node name="forest2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Locked"
+flat = true
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "space"
+label_settings = ExtResource("3_k5hks")
+horizontal_alignment = 1
+
+[node name="forest3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Locked"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/forest" to="." method="_on_forest_pressed"]

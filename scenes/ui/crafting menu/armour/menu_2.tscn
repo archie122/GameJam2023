@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmuoncna7twv"]
+
+[ext_resource type="Texture2D" uid="uid://c2d05mxma1tey" path="res://graphics/items/cooked meat.png" id="1_5aqex"]
+[ext_resource type="Script" path="res://scenes/ui/crafting menu/armour/menu_2.gd" id="1_sngvs"]
+[ext_resource type="Texture2D" uid="uid://ctkf5o603rtjs" path="res://graphics/items/raw meat.png" id="2_kb84f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lb2bc"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
+[node name="menu 2" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sngvs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = -148.0
+offset_right = 147.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -155.0
+offset_right = 48.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "insignificant items"
+label_settings = SubResource("LabelSettings_lb2bc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -95.0
+offset_right = 150.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cooked meat"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5aqex")
+expand_mode = 5
+
+[node name="cook" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "craft "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/cook"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 119.0
+offset_bottom = 35.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/cook/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_kb84f")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/cook/HBoxContainer"]
+layout_mode = 2
+text = "X 1"
+
+[node name="can\'t make" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="exit" type="Button" parent="."]
+offset_left = 1031.0
+offset_top = 400.0
+offset_right = 1049.0
+offset_bottom = 431.0
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/cook" to="." method="_on_cook_pressed"]
+[connection signal="timeout" from="can't make" to="." method="_on_cant_make_timeout"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
